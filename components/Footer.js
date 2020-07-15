@@ -37,10 +37,10 @@ export default function Footer() {
       </ul>
 
       <div className="social">
-        <a href="https://instagram.com/involucrarte.dona/" target="_blank">
+        <a href="https://instagram.com/involucrarte.dona/" target="_blank" rel="noreferrer">
           <img src="/images/instagram.svg" alt="Instagram" />
         </a>
-        <a href="https://www.facebook.com/involucrate.dona/" target="_blank">
+        <a href="https://www.facebook.com/involucrate.dona/" target="_blank" rel="noreferrer">
           <img src="/images/facebook.svg" alt="Facebook" />
         </a>
       </div>
