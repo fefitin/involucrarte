@@ -91,10 +91,18 @@
   margin-top: calc(var(--space) * 2);
 
   .block {
-    margin: 0 3em;
+    margin: 0;
     background-color: #fff;
     padding: var(--space);
     margin-bottom: var(--space);
+
+    &:first-child {
+      margin-right: 3em;
+    }
+
+    &:last-child {
+      margin-left: 3em;
+    }
   }
 
   h2 {
@@ -185,6 +193,12 @@
   padding: 1em 3em;
   font-size: 1.6em;
   font-weight: bold;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: #000;
+    color: #fff;
+  }
 }
 
 .fundacion {

@@ -119,8 +119,9 @@ body {
     text-decoration: none;
     font-size: 1.4em;
     font-weight: bold;
-    display: block;
+    display: inline-block;
     padding: 0.5em 0;
+    position: relative;
   }
 
   p {
@@ -135,6 +136,27 @@ body {
 
     a {
       margin: 0 0.25em;
+    }
+  }
+
+  .links {
+    a {
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: -0.5em;
+        top: 0.2em;
+        bottom: 0.2em;
+        width: 0;
+        background-color: #fff;
+        z-index: -1;
+        transition: width 0.2s;
+      }
+
+      &:hover:before {
+        width: calc(100% + 1em);
+      }
     }
   }
 
