@@ -7,7 +7,6 @@ export default function LargeText({ children }) {
     function isInViewport(element) {
       //Determine if element is in viewport
       const rect = element.getBoundingClientRect();
-      console.log(rect);
       const html = document.documentElement;
       const height = window.innerHeight || html.clientHeight;
       const width = window.innerWidth || html.clientWidth;
