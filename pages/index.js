@@ -59,11 +59,19 @@ export default function Home() {
       </div>
 
       <Blocks>
-        <Block title={['¿Sos', <strong>artista?</strong>]} button="Donar" link="">
-          Unite a nuestro grupo de artistas y donanos tu obra para formar parte de este generoso proyecto.
+        <Block button="Donar" link="">
+          <h2>
+            ¿Sos <strong>artista?</strong>
+          </h2>
+          <p>Unite a nuestro grupo de artistas y donanos tu obra para formar parte de este generoso proyecto.</p>
         </Block>
-        <Block title={['¿Querés', <strong>una obra?</strong>]} button="Comprar" link="">
-          El total del dinero de tu comprá será donado a la <strong>FundaciónSi</strong> para los que más lo necesitan.
+        <Block button="Comprar" link="">
+          <h2>
+            ¿Querés <strong>una obra?</strong>
+          </h2>
+          <p>
+            El total del dinero de tu comprá será donado a la <strong>FundaciónSi</strong> para los que más lo necesitan.
+          </p>
         </Block>
       </Blocks>
 

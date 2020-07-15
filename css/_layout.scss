@@ -204,7 +204,7 @@ body {
 }
 
 .main {
-  padding: calc(var(--space) * 2) 0;
+  padding: calc(var(--space) * 1.5) 0;
 
   @media (min-width: $tablet) {
     padding-bottom: var(--space);

@@ -3,6 +3,10 @@
   line-height: 1em;
   margin: 1em 0;
 
+  &:first-child {
+    margin-top: 0;
+  }
+
   mark {
     display: inline-block;
     --width: 0;
@@ -123,7 +127,7 @@
     }
 
     @media (min-width: $tablet) {
-      font-size: 7.6em;
+      font-size: 6em;
     }
   }
 
@@ -149,18 +153,22 @@
     &:after {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      height: calc(100% - var(--space));
-      width: calc(50% - var(--gutter) / 2);
       background-color: #fff;
       z-index: -1;
     }
 
+    &:before {
+      top: 0;
+      left: 0;
+      width: var(--firstX);
+      height: var(--firstHeight);
+    }
+
     &:after {
-      right: 0;
-      left: auto;
       top: var(--space);
+      left: var(--secondX);
+      right: 0;
+      height: var(--secondHeight);
     }
 
     .block {
@@ -168,19 +176,29 @@
       padding-top: calc(var(--space) * 2);
       padding-bottom: var(--space);
       width: 50%;
-      background-color: transparent;
 
       &:first-child {
         margin-right: calc(var(--gutter) / 2);
         padding-left: var(--gutter);
-        padding-right: calc(var(--space) + var(--gutter));
+        padding-right: var(--gutter);
       }
 
       &:last-child {
         margin-top: var(--space);
         margin-left: calc(var(--gutter) / 2);
-        padding-left: calc(var(--space) + var(--gutter));
+        padding-left: var(--gutter);
         padding-right: var(--gutter);
+      }
+    }
+  }
+
+  @media (min-width: $desktop) {
+    .block {
+      &:first-child {
+        padding-right: calc(var(--space) + var(--gutter));
+      }
+      &:last-child {
+        padding-left: calc(var(--space) + var(--gutter));
       }
     }
   }
@@ -196,10 +214,32 @@
   font-size: 1.6em;
   font-weight: bold;
   transition: all 0.2s;
+  position: relative;
 
   &:hover {
-    background-color: #000;
     color: #fff;
+  }
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    background-color: #000;
+    z-index: 0;
+    transition: width 0.2s;
+  }
+
+  &:hover:before {
+    width: 100%;
+  }
+
+  span {
+    position: relative;
+    z-index: 1;
   }
 }
 
