@@ -29,20 +29,22 @@ export default function LargeText({ children }) {
 
     //Update marker style on window width change
     useEffect(() => {
-      const mark = paragraph.current.querySelector('mark');
+      const marks = paragraph.current.querySelectorAll('mark');
       const container = document.querySelector('.menu');
       const left = container.offsetLeft;
       let width = 0;
       let fullWidth = 0;
 
-      if (isInViewport(mark)) {
-        width = mark.offsetLeft + mark.offsetWidth - container.offsetLeft;
-        fullWidth = mark.offsetLeft + mark.offsetWidth;
-      }
+      marks.forEach(mark => {
+        if (isInViewport(mark)) {
+          width = mark.offsetLeft + mark.offsetWidth - container.offsetLeft;
+          fullWidth = mark.offsetLeft + mark.offsetWidth;
+        }
 
-      mark.style.setProperty('--width', `${width}px`);
-      mark.style.setProperty('--fullWidth', `${fullWidth}px`);
-      mark.style.setProperty('--left', `${left}px`);
+        mark.style.setProperty('--width', `${width}px`);
+        mark.style.setProperty('--fullWidth', `${fullWidth}px`);
+        mark.style.setProperty('--left', `${left}px`);
+      });
     }, [windowWidth, windowTop]);
   }
 
