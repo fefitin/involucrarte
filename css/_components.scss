@@ -421,7 +421,7 @@
     &:hover .button {
       color: #fff;
       &:before {
-        width: 100%;
+        width: calc(100% + 4px);
       }
     }
   }
