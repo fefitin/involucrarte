@@ -26,7 +26,7 @@ export default function Home() {
 
       <Blocks>
         <Block button="Conocer Más" link="">
-          <h2>
+          <h2 className="block-title">
             Sobre la <strong>FundaciónSí?</strong>
           </h2>
           <p>Somos una ONG que tiene como principal objetivo promover la inclusión social de los sectores más vulnerables de la Argentina.</p>
@@ -36,7 +36,7 @@ export default function Home() {
           <p>Quienes formamos Sí estamos convencidos de que transformar la realidad es posible y, para lograrlo, necesitamos el compromiso de todos.</p>
         </Block>
         <Block button="Donar" link="">
-          <h2>
+          <h2 className="block-title">
             ¿Sos <strong>artista?</strong>
           </h2>
           <p>Unite a nuestro grupo de artistas y donanos tu obra para formar parte de este generoso proyecto.</p>

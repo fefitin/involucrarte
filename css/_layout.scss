@@ -1,12 +1,15 @@
 :root {
   --bg: #f3f2ed;
-  --space: 3.4em;
-  --gutter: 3em;
+  --secondary: #c1bca7;
+  --secondary-light: #f3f2ed;
+  --error: #d01900;
+  --space: 34px;
+  --gutter: 30px;
 }
 
 @media (min-width: $tablet) {
   :root {
-    --space: 6.8em;
+    --space: 68px;
   }
 }
 
@@ -217,5 +220,9 @@ p {
 
   + p {
     margin-top: 1em;
+  }
+
+  + .button {
+    margin-top: 4em;
   }
 }

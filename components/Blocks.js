@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Button from './Button';
 
 export function Blocks({ children }) {
@@ -27,7 +27,7 @@ export function Blocks({ children }) {
   }
 
   return (
-    <div ref={container} className="blocks">
+    <div ref={container} className={`blocks ${React.Children.count(children) === 1 ? 'single' : ''}`}>
       <div className="blocks-container">{children}</div>
     </div>
   );
@@ -37,7 +37,7 @@ export function Block({ button, link, children }) {
   return (
     <div className="block">
       {children}
-      <Button href={link} label={button}></Button>
+      {button && <Button href={link} label={button}></Button>}
     </div>
   );
 }
