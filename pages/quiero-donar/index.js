@@ -39,9 +39,17 @@ export default function Home() {
           <div className="field">
             <input type="text" placeholder="Celular" />
           </div>
-          <div className="field">
+          <div className="field files">
             <div className="file-upload">
               <p>Foto de la obra</p>
+              <div className="preview" style={{ backgroundImage: `url(${image})` }}></div>
+              <button type="button" className="button">
+                <span>Seleccionar archivo</span>
+              </button>
+              <input type="file" onChange={loadImage} accept=".jpg,.jpeg" />
+            </div>
+            <div className="file-upload">
+              <p>Foto del autor</p>
               <div className="preview" style={{ backgroundImage: `url(${image})` }}></div>
               <button type="button" className="button">
                 <span>Seleccionar archivo</span>

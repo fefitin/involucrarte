@@ -376,6 +376,10 @@
     border-radius: 0;
   }
 
+  .files .file-upload:first-child {
+    margin-bottom: 1em;
+  }
+
   .button {
     font-size: 1.8em;
     color: var(--secondary);
@@ -445,7 +449,7 @@
     }
 
     .field {
-      padding-right: 20em;
+      padding-right: 21em;
       position: relative;
 
       .message {
@@ -462,6 +466,20 @@
       right: 0;
       bottom: 0.6em;
       width: 10em;
+    }
+  }
+
+  @media (min-width: $desktop) {
+    .files {
+      display: flex;
+      justify-content: space-between;
+
+      .file-upload {
+        width: calc(50% - 0.5em);
+        &:first-child {
+          margin-bottom: 0;
+        }
+      }
     }
   }
 }
