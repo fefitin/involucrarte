@@ -33,11 +33,23 @@ export function Blocks({ children }) {
   );
 }
 
-export function Block({ button, link, children }) {
+export function Block({ button, link, children, target = null }) {
   return (
     <div className="block">
       {children}
-      {button && <Button href={link} label={button}></Button>}
+      {button && <BlockButton href={link} label={button} target={target}></BlockButton>}
     </div>
   );
+}
+
+export function BlockButton({ href, label, target }) {
+  if (target === null) {
+    return <Button href={href} label={label}></Button>;
+  } else {
+    return (
+      <a href={href} target={target} className="button">
+        <span>{label}</span>
+      </a>
+    );
+  }
 }

@@ -254,9 +254,9 @@
     content: '';
     display: block;
     position: absolute;
-    left: -2px;
-    top: -2px;
-    bottom: -2px;
+    left: 0;
+    top: 0;
+    bottom: 0;
     width: 0;
     background-color: #000;
     z-index: 0;
@@ -264,7 +264,7 @@
   }
 
   &:hover:before {
-    width: calc(100% + 4px);
+    width: 100%;
   }
 
   span {
@@ -273,20 +273,27 @@
   }
 
   &.gold {
-    background-color: #c1bca7;
+    color: #c1bca7;
     border-color: #c1bca7;
-    color: #fff;
+
+    &:hover {
+      border-color: #c1bca7;
+      color: #fff;
+    }
+    &:before {
+      background-color: #c1bca7;
+    }
   }
 
   &.silver {
-    background-color: #8c8c8c;
+    color: #8c8c8c;
     border-color: #8c8c8c;
-    color: #fff;
-  }
-
-  &.black {
-    background-color: #000;
-    color: #fff;
+    &:hover {
+      color: #fff;
+    }
+    &:before {
+      background-color: #8c8c8c;
+    }
   }
 }
 
@@ -421,7 +428,7 @@
     &:hover .button {
       color: #fff;
       &:before {
-        width: calc(100% + 4px);
+        width: 100%;
       }
     }
   }

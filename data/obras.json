@@ -1,0 +1,6 @@
+[
+  { "id": 1, "titulo": "Necesario", "autor": { "nombre": "Andrea", "apellido": "Coco", "foto": "/images/_temp.jpg", "facebook": "andrea.oco", "twitter": "andrea.coco", "instagram": "andrea.coco" }, "miniatura": "/images/_temp.jpg", "imagen": "/images/_temp2.jpg", "slug": "necesario" },
+  { "id": 2, "titulo": "Necesario 2", "autor": { "nombre": "Andrea", "apellido": "Coco", "foto": "/images/_temp.jpg", "facebook": "andrea.oco", "twitter": "andrea.coco", "instagram": "andrea.coco" }, "miniatura": "/images/_temp.jpg", "imagen": "/images/_temp2.jpg", "slug": "necesario-2" },
+  { "id": 3, "titulo": "Necesario 3", "autor": { "nombre": "Andrea", "apellido": "Coco", "foto": "/images/_temp.jpg", "facebook": "andrea.oco", "twitter": "andrea.coco", "instagram": "andrea.coco" }, "miniatura": "/images/_temp.jpg", "imagen": "/images/_temp2.jpg", "slug": "necesario-3" },
+  { "id": 4, "titulo": "Necesario 4", "autor": { "nombre": "Andrea", "apellido": "Coco", "foto": "/images/_temp.jpg", "facebook": "andrea.oco", "twitter": "andrea.coco", "instagram": "andrea.coco" }, "miniatura": "/images/_temp.jpg", "imagen": "/images/_temp2.jpg", "slug": "necesario-4" }
+]

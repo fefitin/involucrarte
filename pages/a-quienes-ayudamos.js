@@ -25,7 +25,7 @@ export default function Home() {
       </div>
 
       <Blocks>
-        <Block button="Conocer Más" link="">
+        <Block button="Conocer Más" link="https://fundacionsi.org.ar" target="_blank">
           <h2 className="block-title">
             Sobre la <strong>FundaciónSí?</strong>
           </h2>
@@ -35,7 +35,7 @@ export default function Home() {
 
           <p>Quienes formamos Sí estamos convencidos de que transformar la realidad es posible y, para lograrlo, necesitamos el compromiso de todos.</p>
         </Block>
-        <Block button="Donar" link="">
+        <Block button="Donar" link="/quiero-donar">
           <h2 className="block-title">
             ¿Sos <strong>artista?</strong>
           </h2>

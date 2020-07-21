@@ -62,6 +62,10 @@
     line-height: 1em;
   }
 
+  .nav {
+    display: none;
+  }
+
   .image {
     img {
       width: 100%;
@@ -97,6 +101,32 @@
       a {
         color: inherit;
         text-decoration: none;
+
+        span {
+          position: relative;
+          z-index: 1;
+          transition: color 0.2s;
+
+          &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: -0.1em;
+            top: 0.2em;
+            bottom: 0.1em;
+            width: 0;
+            background-color: #000;
+            z-index: -1;
+            transition: width 0.2s;
+          }
+        }
+
+        &:hover span {
+          color: #fff;
+          &:before {
+            width: calc(100% + 0.2em);
+          }
+        }
       }
 
       img {
@@ -134,7 +164,7 @@
     }
 
     .buttons {
-      margin-top: var(--space);
+      margin-top: var(--gutter);
       text-align: center;
 
       li {
@@ -156,6 +186,24 @@
       color: inherit;
       text-decoration: none;
       text-transform: uppercase;
+      position: relative;
+
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: -0.5em;
+        top: 0.2em;
+        bottom: 0.2em;
+        width: 0;
+        background-color: #fff;
+        z-index: -1;
+        transition: width 0.2s;
+      }
+
+      &:hover:before {
+        width: calc(100% + 1em);
+      }
     }
   }
 
@@ -235,6 +283,36 @@
     .back {
       text-align: left;
       margin-bottom: var(--space);
+    }
+  }
+
+  @media (min-width: $xl) {
+    .nav {
+      display: block;
+      position: absolute;
+      left: 0;
+      top: var(--image-center);
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0 var(--gutter);
+      z-index: 5;
+
+      a {
+        width: 1.4em;
+        height: 2.4em;
+        display: block;
+        text-indent: -9999em;
+        background-image: url(/images/prev.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        float: left;
+
+        &.next {
+          transform: rotate(180deg);
+          float: right;
+        }
+      }
     }
   }
 }
