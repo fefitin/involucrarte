@@ -52,7 +52,7 @@ export default function Home() {
           <div className="field">
             <textarea rows="10" placeholder="Escriba su mensaje aquí..."></textarea>
           </div>
-          <button type="submit" className="button submit">
+          <button type="submit" className="button submit" disabled>
             <span>Enviar</span>
           </button>
         </div>

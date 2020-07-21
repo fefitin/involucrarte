@@ -295,6 +295,14 @@
       background-color: #8c8c8c;
     }
   }
+
+  &[disabled] {
+    border-color: var(--secondary);
+    color: var(--secondary);
+    &:before {
+      display: none;
+    }
+  }
 }
 
 .fundacion {
@@ -369,16 +377,12 @@
   }
 
   .button {
-    border-color: var(--secondary);
-    color: var(--secondary);
     font-size: 1.8em;
+    color: var(--secondary);
+    border: 1px solid var(--secondary);
 
     &:before {
       background-color: var(--secondary);
-    }
-
-    &:hover {
-      color: #fff;
     }
   }
 
