@@ -1,9 +1,9 @@
 import { useRef, useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import nl2br from 'react-nl2br';
 import Button from './../../components/Button';
 import obras from './../../data/obras.json';
+import YouTubeVideo from '../../components/YouTubeVideo';
 
 export default function Obra({ obra, siguiente, anterior }) {
   const container = useRef();
@@ -25,7 +25,10 @@ export default function Obra({ obra, siguiente, anterior }) {
     useEffect(() => {
       const left = author.current.offsetLeft + author.current.offsetWidth;
       author.current.style.setProperty('--margin', `${windowWidth - left}px`);
-      container.current.style.setProperty('--image-center', `${image.current.offsetTop + image.current.offsetHeight / 2}px`);
+      container.current.style.setProperty(
+        '--image-center',
+        `${image.current.offsetTop + image.current.offsetHeight / 2}px`
+      );
     }, [windowWidth]);
   }
 
@@ -56,11 +59,17 @@ export default function Obra({ obra, siguiente, anterior }) {
 
           <div className="image">
             <img src={obra.imagen} alt={obra.titulo} ref={image} />
-            <p>{nl2br(obra.descripcion)}</p>
+            {obra.tecnica && <p>{obra.tecnica}</p>}
+            {obra.tamano && <p>{obra.tamano}</p>}
+            {obra.ano && <p>{obra.ano}</p>}
           </div>
 
           <div className="author" ref={author}>
-            <img src={obra.autor.foto} alt={obra.titulo} className="video" />
+            <div className="video">
+              {obra.autor.foto && <img src={obra.autor.foto} alt={obra.titulo} />}
+              {obra.autor.video && <YouTubeVideo id={obra.autor.video} />}
+            </div>
+
             <p className="nombre">
               {obra.autor.nombre}
               <br />
@@ -70,7 +79,8 @@ export default function Obra({ obra, siguiente, anterior }) {
             {obra.autor.instagram && (
               <p className="social">
                 <a href={`https://instagram.com/${obra.autor.instagram}`} target="_blank">
-                  <img src="/images/instagram.svg" alt="Instagram" /> <span>@{obra.autor.instagram}</span>
+                  <img src="/images/instagram.svg" alt="Instagram" />{' '}
+                  <span>@{obra.autor.instagram}</span>
                 </a>
               </p>
             )}
@@ -78,7 +88,8 @@ export default function Obra({ obra, siguiente, anterior }) {
             {obra.autor.facebook && (
               <p className="social">
                 <a href={`https://facebook.com/${obra.autor.facebook}`} target="_blank">
-                  <img src="/images/facebook.svg" alt="Facebook" /> <span>@{obra.autor.facebook}</span>
+                  <img src="/images/facebook.svg" alt="Facebook" />{' '}
+                  <span>@{obra.autor.facebook}</span>
                 </a>
               </p>
             )}

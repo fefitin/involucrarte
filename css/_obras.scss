@@ -76,7 +76,7 @@
 
   .author {
     background-color: #fff;
-    padding: var(--space) var(--gutter);
+    padding: var(--space) 0 var(--space) var(--gutter);
     margin-top: var(--space);
     width: calc(100% + var(--gutter));
     box-sizing: border-box;

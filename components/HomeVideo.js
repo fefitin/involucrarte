@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Video({ src }) {
+export default function HomeVideo({ src }) {
   return (
     <div className="home-video">
       <div className="container">

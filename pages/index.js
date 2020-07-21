@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import LargeText from './../components/LargeText';
-import Video from './../components/Video';
+import HomeVideo from './../components/HomeVideo';
 import FundacionSi from './../components/FundacionSi';
 import { Blocks, Block } from './../components/Blocks';
 
@@ -25,7 +25,9 @@ export default function Home() {
         </LargeText>
 
         <p>
-          Un grupo de artistas dona su arte para la venta. En esta página publicamos las obras y gestionamos la venta. Los compradores depositan el dinero directamente en una cuenta de la <strong>FundacionSí</strong>.
+          Un grupo de artistas dona su arte para la venta. En esta página publicamos las obras y
+          gestionamos la venta. Los compradores depositan el dinero directamente en una cuenta de la{' '}
+          <strong>FundacionSí</strong>.
         </p>
 
         <LargeText>
@@ -39,10 +41,13 @@ export default function Home() {
         <p>Te invito a ver las obras... ¡¡¡Tal vez nos puedas acompañar!!!</p>
       </div>
 
-      <Video src="/video.mp4"></Video>
+      <HomeVideo src="/video.mp4"></HomeVideo>
 
       <div className="video-caption">
-        <p>Hoy podemos llevar adelante esta original acción gracias a la compasión y generosidad de este grupo de artistas, bajo el lema de</p>
+        <p>
+          Hoy podemos llevar adelante esta original acción gracias a la compasión y generosidad de
+          este grupo de artistas, bajo el lema de
+        </p>
         <img src="/images/involucrarte.svg" alt="Involucrarte." />
       </div>
 
@@ -63,14 +68,18 @@ export default function Home() {
           <h2 className="block-title">
             ¿Sos <strong>artista?</strong>
           </h2>
-          <p>Unite a nuestro grupo de artistas y donanos tu obra para formar parte de este generoso proyecto.</p>
+          <p>
+            Unite a nuestro grupo de artistas y donanos tu obra para formar parte de este generoso
+            proyecto.
+          </p>
         </Block>
         <Block button="Comprar" link="">
           <h2 className="block-title">
             ¿Querés <strong>una obra?</strong>
           </h2>
           <p>
-            El total del dinero de tu comprá será donado a la <strong>FundaciónSi</strong> para los que más lo necesitan.
+            El total del dinero de tu comprá será donado a la <strong>FundaciónSi</strong> para los
+            que más lo necesitan.
           </p>
         </Block>
       </Blocks>

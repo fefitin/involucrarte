@@ -1,6 +1,90 @@
 [
-  { "id": 1, "titulo": "Necesario", "autor": { "nombre": "Andrea", "apellido": "Coco", "foto": "/images/_temp.jpg", "facebook": "andrea.oco", "twitter": "andrea.coco", "instagram": "andrea.coco" }, "miniatura": "/images/_temp.jpg", "imagen": "/images/_temp2.jpg", "slug": "necesario" },
-  { "id": 2, "titulo": "Necesario 2", "autor": { "nombre": "Andrea", "apellido": "Coco", "foto": "/images/_temp.jpg", "facebook": "andrea.oco", "twitter": "andrea.coco", "instagram": "andrea.coco" }, "miniatura": "/images/_temp.jpg", "imagen": "/images/_temp2.jpg", "slug": "necesario-2" },
-  { "id": 3, "titulo": "Necesario 3", "autor": { "nombre": "Andrea", "apellido": "Coco", "foto": "/images/_temp.jpg", "facebook": "andrea.oco", "twitter": "andrea.coco", "instagram": "andrea.coco" }, "miniatura": "/images/_temp.jpg", "imagen": "/images/_temp2.jpg", "slug": "necesario-3" },
-  { "id": 4, "titulo": "Necesario 4", "autor": { "nombre": "Andrea", "apellido": "Coco", "foto": "/images/_temp.jpg", "facebook": "andrea.oco", "twitter": "andrea.coco", "instagram": "andrea.coco" }, "miniatura": "/images/_temp.jpg", "imagen": "/images/_temp2.jpg", "slug": "necesario-4" }
+  {
+    "id": 1,
+    "titulo": "Necesario",
+    "autor": {
+      "nombre": "Andrea",
+      "apellido": "Coco",
+      "foto": null,
+      "video": "L6uKu2QUAQM",
+      "facebook": "andrea.coco.71",
+      "instagram": "andreacocoav"
+    },
+    "miniatura": "/images/obras/necesario_mini.jpg",
+    "imagen": "/images/obras/necesario.jpg",
+    "tecnica": "Acrílico sobre tela.",
+    "ano": 2015,
+    "tamano": "100x100cm",
+    "slug": "necesario"
+  },
+  {
+    "id": 2,
+    "titulo": "Encuentros",
+    "autor": {
+      "nombre": "Pompi",
+      "apellido": "Caputo",
+      "foto": null,
+      "video": "F60-ddKRbfM",
+      "facebook": "pompi.caputo",
+      "instagram": "pompicaputo"
+    },
+    "miniatura": "/images/obras/encuentros_mini.jpg",
+    "imagen": "/images/obras/encuentros.jpg",
+    "tecnica": "Fotografía digital impresa en papel fotográfico montada en cajón de madera.",
+    "ano": 2011,
+    "tamano": "36x26cm",
+    "slug": "encuentros"
+  },
+  {
+    "id": 3,
+    "titulo": "Vínculos",
+    "autor": {
+      "nombre": "Pompi",
+      "apellido": "Caputo",
+      "foto": null,
+      "video": "F60-ddKRbfM",
+      "facebook": "pages/category/Artist/Pompi-Caputo-Arte-353900778115665/",
+      "instagram": "pompicaputo"
+    },
+    "miniatura": "/images/obras/vinculos_mini.jpg",
+    "imagen": "/images/obras/vinculos.jpg",
+    "tecnica": "Fotografía digital impresa en papel fotográfico montada en cajón de madera.",
+    "ano": 2011,
+    "tamano": "36x26cm",
+    "slug": "vinculos"
+  },
+  {
+    "id": 4,
+    "titulo": "Entreactos",
+    "autor": {
+      "nombre": "Elena",
+      "apellido": "Faivovich",
+      "foto": null,
+      "video": "JwaS34U_K1w",
+      "facebook": "elena.faivovichdetencer",
+      "instagram": "elenafaivovich"
+    },
+    "miniatura": "/images/obras/entreactos_mini.jpg",
+    "imagen": "/images/obras/entreactos.jpg",
+    "tecnica": "Acrílico sobre papel.",
+    "tamano": "80x45cm",
+    "slug": "entreactos"
+  },
+  {
+    "id": 5,
+    "titulo": "El Maracuyá",
+    "autor": {
+      "nombre": "Gustavo",
+      "apellido": "Guerchi",
+      "foto": null,
+      "video": "wIKhIwAUuGs",
+      "facebook": "gustavoguerchi",
+      "instagram": "gustavoguerchi"
+    },
+    "miniatura": "/images/obras/maracuya_mini.jpg",
+    "imagen": "/images/obras/maracuya.jpg",
+    "tecnica": "Óleo sobre madera. Se entrega con marco.",
+    "tamano": "90x70cm",
+    "slug": "el-maracuya"
+  }
 ]
