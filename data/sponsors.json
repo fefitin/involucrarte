@@ -1,0 +1,28 @@
+[
+  {
+    "logo": "/images/logos/divinodisenio.svg",
+    "nombre": "Divino Diseño",
+    "descripcion": "Estudio de diseño y desarrollo",
+    "link": { "url": "https://divinodi.com", "icono": "/images/web.svg", "nombre": "divinodi.com" }
+  },
+  {
+    "logo": "/images/logos/vanegarcia.svg",
+    "nombre": "Vanesa García",
+    "descripcion": "Diseñadora Gráfica y Web UX/UI",
+    "link": {
+      "url": "https://behance.net/vanegarciadg",
+      "icono": "/images/behance.svg",
+      "nombre": "vanegarciadg"
+    }
+  },
+  {
+    "logo": "/images/logos/fundacionsi.png",
+    "nombre": "FundaciónSí",
+    "descripcion": "ONG",
+    "link": {
+      "url": "https://fundacionsi.org.ar",
+      "icono": "/images/web.svg",
+      "nombre": "fundacionsi.org.ar"
+    }
+  }
+]

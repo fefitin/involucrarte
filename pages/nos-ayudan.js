@@ -1,5 +1,7 @@
 import Head from 'next/head';
 import LargeText from './../components/LargeText';
+import Sponsor from './../components/Sponsor';
+import sponsors from './../data/sponsors.json';
 
 export default function Home() {
   return (
@@ -14,22 +16,12 @@ export default function Home() {
           <br />
           <mark>acompañarnos</mark>
         </LargeText>
-        <ul className="sponsors">
-          <li>
-            <a href="https://divinodi.com" target="_blank" rel="nofollow">
-              <img src="/images/logos/divinodisenio.svg" alt="Divino Diseño" className="divino" />
-            </a>
-          </li>
-          <li>
-            <a href="https://www.behance.net/vanegarciadg" target="_blank" rel="nofollow">
-              <img src="/images/logos/VaneGarcia.svg" alt="Vane García" className="vane" />
-            </a>
-          </li>
-          <li>
-            <a href="https://fundacionsi.org.ar/" target="_blank" rel="nofollow">
-              <img src="/images/fundacionsi.png" alt="FundaciónSí" className="si" />
-            </a>
-          </li>
+      </div>
+      <div className="container">
+        <ul className="listing sponsors">
+          {sponsors.map(sponsor => (
+            <Sponsor key={sponsor.nombre} sponsor={sponsor}></Sponsor>
+          ))}
         </ul>
       </div>
     </div>
