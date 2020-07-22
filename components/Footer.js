@@ -51,6 +51,19 @@ export default function Footer() {
           <br />
           Todos los derechos reservados.
         </p>
+
+        <div className="logos">
+          <a href="https://divinodi.com" target="_blank" rel="nofollow">
+            <img
+              src="/images/logos/divinodisenio-footer.svg"
+              alt="Divino Diseño"
+              className="divino"
+            />
+          </a>
+          <a href="https://www.behance.net/vanegarciadg" target="_blank" rel="nofollow">
+            <img src="/images/logos/VaneGarcia.svg" alt="Vane García" className="vane" />
+          </a>
+        </div>
       </div>
     </footer>
   );
