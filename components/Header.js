@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import Link from 'next/link';
 import ActiveLink from './ActiveLink';
 
 export default function Header() {
+  const [visible, setVisible] = useState(false);
+
   return (
     <header className="container header">
       <div className="top">
@@ -10,8 +13,11 @@ export default function Header() {
             <img src="/images/involucrarte.svg" alt="involucrarte." />
           </a>
         </Link>
+        <button className="toggle-menu" onClick={e => setVisible(visible => !visible)}>
+          <img src="/images/menu.svg" alt="Menú" />
+        </button>
       </div>
-      <nav className="menu">
+      <nav className={`menu ${visible ? 'visible' : ''}`}>
         <ul>
           <li>
             <ActiveLink href="/quienes-somos">Quiénes somos</ActiveLink>
