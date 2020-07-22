@@ -61,7 +61,7 @@ export default function Footer() {
             />
           </a>
           <a href="https://www.behance.net/vanegarciadg" target="_blank" rel="nofollow">
-            <img src="/images/logos/VaneGarcia-footer.svg" alt="Vane García" className="vane" />
+            <img src="/images/logos/vanegarcia-footer.svg" alt="Vane García" className="vane" />
           </a>
         </div>
       </div>
