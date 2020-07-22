@@ -496,3 +496,33 @@
     height: 100%;
   }
 }
+
+.sponsors {
+  li + li {
+    margin-top: 2em;
+  }
+
+  img {
+    display: block;
+    height: 5em;
+    margin: 0 auto;
+
+    &.divino {
+      height: 6em;
+    }
+  }
+
+  @media (min-width: $tablet) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    li {
+      margin: 1em;
+
+      + li {
+        margin-top: 1em;
+      }
+    }
+  }
+}

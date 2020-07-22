@@ -26,7 +26,7 @@ export default function Header() {
             <ActiveLink href="/quiero-donar">Quiero donar</ActiveLink>
           </li>
           <li>
-            <ActiveLink href="/sponsors">Sponsors</ActiveLink>
+            <ActiveLink href="/nos-ayudan">Sponsors</ActiveLink>
           </li>
           <li>
             <ActiveLink href="/contacto">Contacto</ActiveLink>
