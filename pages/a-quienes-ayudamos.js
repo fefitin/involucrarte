@@ -5,7 +5,7 @@ import { Blocks, Block } from './../components/Blocks';
 
 export default function Home() {
   return (
-    <div className="home">
+    <div className="ayudamos">
       <Head>
         <title>a quiénes ayudamos · involucrarte.</title>
       </Head>

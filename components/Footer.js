@@ -47,7 +47,7 @@ export default function Footer() {
 
       <div className="copy">
         <p>
-          ©2020 involucr<strong>arte.</strong>®️
+          ©2020 involucr<strong>arte.</strong> &reg;
           <br />
           Todos los derechos reservados.
         </p>

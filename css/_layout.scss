@@ -233,6 +233,10 @@ body {
     }
   }
 
+  .copy {
+    text-size-adjust: none;
+  }
+
   @media (min-width: $mobile) {
     display: flex;
     align-items: flex-start;

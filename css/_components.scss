@@ -45,6 +45,14 @@
   }
 }
 
+.ayudamos {
+  @media (max-width: #{$mobile - 1}) {
+    .large-text {
+      font-size: 2.5em;
+    }
+  }
+}
+
 .home-video {
   margin-top: var(--space);
   padding: calc(var(--space) * 2) 0;
@@ -384,6 +392,7 @@
     font-size: 1.8em;
     color: var(--secondary);
     border: 1px solid var(--secondary);
+    margin-top: 0.5em;
 
     &:before {
       background-color: var(--secondary);
