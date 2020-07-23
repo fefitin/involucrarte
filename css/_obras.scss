@@ -258,6 +258,10 @@
       width: 60%;
       flex-shrink: 0;
       flex-grow: 0;
+
+      .description {
+        padding-right: calc(var(--space) * 2);
+      }
     }
 
     .author {

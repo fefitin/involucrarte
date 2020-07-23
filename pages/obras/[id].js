@@ -59,9 +59,11 @@ export default function Obra({ obra, siguiente, anterior }) {
 
           <div className="image">
             <img src={obra.imagen} alt={obra.titulo} ref={image} />
-            {obra.tecnica && <p>{obra.tecnica}</p>}
-            {obra.tamano && <p>{obra.tamano}</p>}
-            {obra.ano && <p>{obra.ano}</p>}
+            <div className="description">
+              {obra.tecnica && <p>{obra.tecnica}</p>}
+              {obra.tamano && <p>{obra.tamano}</p>}
+              {obra.ano && <p>{obra.ano}</p>}
+            </div>
           </div>
 
           <div className="author" ref={author}>
