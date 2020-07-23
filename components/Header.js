@@ -24,6 +24,11 @@ export default function Header() {
       <nav className={`menu ${visible ? 'visible' : ''}`}>
         <ul>
           <li>
+            <ActiveLink href="/" onClick={hideMenu}>
+              Inicio
+            </ActiveLink>
+          </li>
+          <li>
             <ActiveLink href="/quienes-somos" onClick={hideMenu}>
               Quiénes somos
             </ActiveLink>

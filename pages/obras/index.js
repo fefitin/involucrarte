@@ -1,8 +1,8 @@
+import obras from './../../data/obras.json';
 import Head from 'next/head';
 import Obra from './../../components/Obra';
-import obras from './../../data/obras.json';
 
-export default function Home() {
+export default function Home({ obras }) {
   return (
     <div>
       <Head>
@@ -18,4 +18,16 @@ export default function Home() {
       </div>
     </div>
   );
+}
+
+export async function getStaticProps({ params }) {
+  const sorted = obras.sort((obra1, obra2) =>
+    obra1.autor.apellido < obra2.autor.apellido ? -1 : 1
+  );
+
+  return {
+    props: {
+      obras: sorted,
+    },
+  };
 }

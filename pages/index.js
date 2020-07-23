@@ -12,18 +12,24 @@ export default function Home() {
       </Head>
 
       <div className="small-container">
-        <p>
-          ¡Hola! ¡Una alegría que estés ahí!
-          <br />
-          ¿Qué es Involucr<strong>Arte</strong>?
-        </p>
-
         <LargeText>
           <mark>Una forma de ayudar</mark>
           <br />
           <strong>a los más necesitados.</strong>
         </LargeText>
+      </div>
 
+      <HomeVideo src="/video.mp4"></HomeVideo>
+
+      <div className="video-caption">
+        <p>
+          Hoy podemos llevar adelante esta original acción gracias a la compasión y generosidad de
+          este grupo de artistas, bajo el lema de
+        </p>
+        <img src="/images/involucrarte.svg" alt="Involucrarte." />
+      </div>
+
+      <div className="small-container">
         <p>
           Un grupo de artistas dona su arte para la venta. En esta página publicamos las obras y
           gestionamos la venta. Los compradores depositan el dinero directamente en una cuenta de la{' '}
@@ -39,16 +45,6 @@ export default function Home() {
         </LargeText>
 
         <p>Te invito a ver las obras... ¡¡¡Tal vez nos puedas acompañar!!!</p>
-      </div>
-
-      <HomeVideo src="/video.mp4"></HomeVideo>
-
-      <div className="video-caption">
-        <p>
-          Hoy podemos llevar adelante esta original acción gracias a la compasión y generosidad de
-          este grupo de artistas, bajo el lema de
-        </p>
-        <img src="/images/involucrarte.svg" alt="Involucrarte." />
       </div>
 
       <div className="small-container">

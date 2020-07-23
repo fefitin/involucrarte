@@ -26,6 +26,14 @@ export default function Home() {
           Recibimos <strong>tu donación</strong>
         </h1>
 
+        <div className="intro">
+          <p>
+            Completá el siguiente formulario para involucr<strong>arte</strong> ofreciendo tu obra.
+            <br />
+            Podés donar la cantidad de obras que quieras.
+          </p>
+        </div>
+
         <div className="fieldset">
           <div className="field">
             <input type="text" placeholder="Nombre y apellido" />
@@ -34,10 +42,19 @@ export default function Home() {
             <input type="email" placeholder="E-mail" />
           </div>
           <div className="field">
+            <input type="text" placeholder="Celular" />
+          </div>
+          <div className="field">
             <input type="text" placeholder="Nombre de la obra" />
           </div>
           <div className="field">
-            <input type="text" placeholder="Celular" />
+            <input type="text" placeholder="Ficha técnica" />
+          </div>
+          <div className="field">
+            <input type="text" placeholder="Precio base" />
+          </div>
+          <div className="field">
+            <input type="text" placeholder="Redes" />
           </div>
           <div className="field files">
             <div className="file-upload">

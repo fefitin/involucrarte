@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function YouTubeVideo({ id }) {
+export default function YouTubeVideo({ id, vertical }) {
   return (
-    <div className="youtube-video">
+    <div className={`youtube-video ${vertical ? 'vertical' : ''}`}>
       <iframe
         src={`https://www.youtube.com/embed/${id}`}
         frameBorder="0"

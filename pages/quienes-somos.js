@@ -22,7 +22,11 @@ export default function Home() {
           <mark>tratamos de ayudar</mark>
         </LargeText>
 
-        <p>Aportando nuestro granito de arena de diferentes formas.</p>
+        <p>
+          Aportando nuestro granito de arena de diferentes formas.
+          <br />
+          Andrea Coco . Paula Soto . Miguel Angel Nabhen
+        </p>
 
         <LargeText>
           <mark>Involucrate, cooperá y</mark>

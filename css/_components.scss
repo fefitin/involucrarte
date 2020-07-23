@@ -54,14 +54,13 @@
 }
 
 .home-video {
-  margin-top: var(--space);
-  padding: calc(var(--space) * 2) 0;
+  padding: var(--space) 0 calc(var(--space) * 2) 0;
   position: relative;
 
   &:before {
     content: '';
     position: absolute;
-    top: var(--space);
+    top: 0;
     bottom: var(--space);
     right: 0;
     left: 50%;
@@ -348,6 +347,10 @@
     padding-right: var(--space);
   }
 
+  .intro {
+    margin-bottom: var(--gutter);
+  }
+
   .field {
     padding: 1em;
     width: calc(100% + 2em);
@@ -497,6 +500,11 @@
   position: relative;
   padding-bottom: 56.25%;
   height: 0;
+
+  &.vertical {
+    padding-bottom: 134%;
+  }
+
   iframe {
     position: absolute;
     top: 0;

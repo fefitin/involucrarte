@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Button from './../../components/Button';
 import obras from './../../data/obras.json';
 import YouTubeVideo from '../../components/YouTubeVideo';
+import precio from './../../libs/precio';
 
 export default function Obra({ obra, siguiente, anterior }) {
   const container = useRef();
@@ -46,12 +47,12 @@ export default function Obra({ obra, siguiente, anterior }) {
         <div className="info">
           <div className="nav">
             {anterior && (
-              <Link href={`/obras/${anterior.slug}`}>
+              <Link href="/obras/[id]" as={`/obras/${anterior.slug}`}>
                 <a className="prev">Anterior</a>
               </Link>
             )}
             {siguiente && (
-              <Link href={`/obras/${siguiente.slug}`}>
+              <Link href="/obras/[id]" as={`/obras/${siguiente.slug}`}>
                 <a className="next">Siguiente</a>
               </Link>
             )}
@@ -69,7 +70,9 @@ export default function Obra({ obra, siguiente, anterior }) {
           <div className="author" ref={author}>
             <div className="video">
               {obra.autor.foto && <img src={obra.autor.foto} alt={obra.titulo} />}
-              {obra.autor.video && <YouTubeVideo id={obra.autor.video} />}
+              {obra.autor.video && (
+                <YouTubeVideo id={obra.autor.video} vertical={obra.autor.vertical} />
+              )}
             </div>
 
             <p className="nombre">
@@ -106,23 +109,33 @@ export default function Obra({ obra, siguiente, anterior }) {
           </div>
         </div>
 
-        <div className="buy">
-          <h2>
-            <span>Comprar ahora</span>
-          </h2>
+        {obra.precio && (
+          <div className="buy">
+            <h2>
+              <span>Comprar ahora</span>
+            </h2>
 
-          <ul className="buttons">
-            <li>
-              <Button href="/obras/gracias" label="$ 1.000.000" className="gold"></Button>
-            </li>
-            <li>
-              <Button href="/obras/gracias" label="$ 1.500.000" className="silver"></Button>
-            </li>
-            <li>
-              <Button href="/obras/gracias" label="$ 2.000.000" className="black"></Button>
-            </li>
-          </ul>
-        </div>
+            <ul className="buttons">
+              <li>
+                <Button href="/obras/gracias" label={precio(obra.precio)} className="gold"></Button>
+              </li>
+              <li>
+                <Button
+                  href="/obras/gracias"
+                  label={precio(obra.precio2)}
+                  className="silver"
+                ></Button>
+              </li>
+              <li>
+                <Button
+                  href="/obras/gracias"
+                  label={precio(obra.precio3)}
+                  className="black"
+                ></Button>
+              </li>
+            </ul>
+          </div>
+        )}
 
         <p className="back">
           <Link href="/obras">
@@ -151,9 +164,15 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const i = obras.findIndex(o => o.slug === params.id);
+  const obra = obras[i];
+  if (obra.precio) {
+    obra.precio2 = obra.precio * 1.1;
+    obra.precio3 = obra.precio * 1.2;
+  }
+
   return {
     props: {
-      obra: obras[i],
+      obra,
       siguiente: i <= obras.length - 2 ? obras[i + 1] : null,
       anterior: i > 0 ? obras[i - 1] : null,
     },

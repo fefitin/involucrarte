@@ -3,7 +3,7 @@ import Link from 'next/link';
 export default function Obra({ obra }) {
   return (
     <li>
-      <Link href={`/obras/${obra.slug}`}>
+      <Link href="/obras/[id]" as={`/obras/${obra.slug}`}>
         <a>
           <img src={obra.miniatura} alt={obra.titulo} />
           <div className="info">

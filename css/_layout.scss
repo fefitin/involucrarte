@@ -48,6 +48,10 @@ body {
   max-width: 75em;
   padding: 0 var(--gutter);
   margin: 0 auto;
+
+  + .small-container {
+    margin-top: var(--space);
+  }
 }
 
 .header {
