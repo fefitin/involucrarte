@@ -393,13 +393,7 @@
 
   .button {
     font-size: 1.8em;
-    color: var(--secondary);
-    border: 1px solid var(--secondary);
     margin-top: 0.5em;
-
-    &:before {
-      background-color: var(--secondary);
-    }
   }
 
   p.error {
@@ -465,7 +459,7 @@
       position: relative;
 
       .message {
-        width: 8.5em;
+        width: 9em;
         position: absolute;
         right: 0.5em;
         top: 0.2em;
