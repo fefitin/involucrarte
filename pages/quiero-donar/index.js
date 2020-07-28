@@ -1,17 +1,63 @@
 import { useState } from 'react';
+import Router from 'next/router';
 import Head from 'next/head';
 import FundacionSi from './../../components/FundacionSi';
+import FormField from '../../components/FormField';
+import FileUpload from '../../components/FileUpload';
+import API from '../../services/API';
+import { createRefs, updateValid, triggerValidations } from './../../libs/forms';
 
-export default function Home() {
-  const [image, setImage] = useState(null);
+export default function QuieroDonar() {
+  const required = ['nombre', 'email', 'obra', 'ficha', 'precio'];
+  const refs = createRefs(required);
 
-  const loadImage = e => {
-    if (e.target.files && e.target.files.length) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        setImage(reader.result);
-      };
-      reader.readAsDataURL(e.target.files[0]);
+  const [fields, setFields] = useState({
+    nombre: '',
+    email: '',
+    tel: '',
+    obra: '',
+    ficha: '',
+    precio: '',
+    redes: '',
+    foto: null,
+    autor: null,
+  });
+
+  const [valid, setValid] = useState(true);
+  const [error, setError] = useState('');
+  const [sending, setSending] = useState(false);
+
+  const setField = (field, value) => {
+    setFields(fields => {
+      fields[field] = value;
+      updateValid(fields, required, setValid);
+      return fields;
+    });
+  };
+
+  const onSubmit = e => {
+    e.preventDefault();
+    triggerValidations(refs);
+
+    if (updateValid(fields, required, setValid)) {
+      setSending(true);
+
+      API.post('/quiero-donar', fields, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      })
+        .then(result => {
+          if (result.ok) {
+            Router.push('/quiero-donar/gracias').then(() => window.scrollTo(0, 0));
+          } else {
+            setError('Error al enviar su mensaje. Por favor, intente nuevamente.');
+          }
+        })
+        .catch(() => {
+          setError('Error al enviar su mensaje. Por favor, intente nuevamente.');
+        })
+        .finally(() => {
+          setSending(false);
+        });
     }
   };
 
@@ -21,10 +67,12 @@ export default function Home() {
         <title>quiero donar · involucrarte.</title>
       </Head>
 
-      <form className="form" action="quiero-donar/gracias">
+      <form className="form" onSubmit={onSubmit} noValidate={true}>
         <h1 className="block-title">
           Recibimos <strong>tu donación</strong>
         </h1>
+
+        {error ? <p className="error">{error}</p> : null}
 
         <div className="intro">
           <p>
@@ -35,50 +83,72 @@ export default function Home() {
         </div>
 
         <div className="fieldset">
-          <div className="field">
-            <input type="text" placeholder="Nombre y apellido" />
-          </div>
-          <div className="field">
-            <input type="email" placeholder="E-mail" />
-          </div>
-          <div className="field">
-            <input type="text" placeholder="Celular" />
-          </div>
-          <div className="field">
-            <input type="text" placeholder="Nombre de la obra" />
-          </div>
-          <div className="field">
-            <input type="text" placeholder="Ficha técnica" />
-          </div>
-          <div className="field">
-            <input type="text" placeholder="Precio base" />
-          </div>
-          <div className="field">
-            <input type="text" placeholder="Redes" />
-          </div>
+          <FormField
+            placeholder="Nombre y apellido"
+            onChange={v => setField('nombre', v)}
+            error="Por favor, ingrese su nombre."
+            required={required.includes('nombre')}
+            ref={refs.nombre}
+          ></FormField>
+          <FormField
+            type="email"
+            placeholder="E-mail"
+            onChange={v => setField('email', v)}
+            error="Por favor, ingrese su e-mail."
+            required={required.includes('email')}
+            ref={refs.email}
+          ></FormField>
+          <FormField
+            placeholder="Celular"
+            onChange={v => setField('tel', v)}
+            error="Por favor, ingrese su celular."
+            required={required.includes('tel')}
+          ></FormField>
+          <FormField
+            placeholder="Obra"
+            onChange={v => setField('obra', v)}
+            error="Por favor, ingrese el nombre de su obra."
+            required={required.includes('obra')}
+            ref={refs.obra}
+          ></FormField>
+          <FormField
+            placeholder="Ficha técnica"
+            onChange={v => setField('ficha', v)}
+            error="Ingrese la ficha técnica de su obra."
+            required={required.includes('ficha')}
+            ref={refs.ficha}
+          ></FormField>
+          <FormField
+            placeholder="Precio"
+            onChange={v => setField('precio', v)}
+            error="Por favor, ingrese el precio de su obra."
+            required={required.includes('precio')}
+            ref={refs.precio}
+          ></FormField>
+          <FormField
+            placeholder="Redes"
+            onChange={v => setField('redes', v)}
+            error="Por favor, ingrese sus redes sociales."
+            required={required.includes('redes')}
+          ></FormField>
           <div className="field files">
-            <div className="file-upload">
-              <p>Foto de la obra</p>
-              <div className="preview" style={{ backgroundImage: `url(${image})` }}></div>
-              <button type="button" className="button">
-                <span>Seleccionar archivo</span>
-              </button>
-              <input type="file" onChange={loadImage} accept=".jpg,.jpeg" />
-            </div>
-            <div className="file-upload">
-              <p>Foto del autor</p>
-              <div className="preview" style={{ backgroundImage: `url(${image})` }}></div>
-              <button type="button" className="button">
-                <span>Seleccionar archivo</span>
-              </button>
-              <input type="file" onChange={loadImage} accept=".jpg,.jpeg" />
-            </div>
+            <FileUpload
+              placeholder="Foto de la obra"
+              onChange={v => setField('foto', v)}
+            ></FileUpload>
+            <FileUpload
+              placeholder="Foto del autor"
+              onChange={v => setField('autor', v)}
+            ></FileUpload>
           </div>
-          <div className="field">
-            <textarea rows="10" placeholder="Escriba su mensaje aquí..."></textarea>
-          </div>
-          <button type="submit" className="button submit" disabled>
-            <span>Enviar</span>
+          <FormField
+            type="textarea"
+            placeholder="Escriba su mensaje aquí..."
+            onChange={v => setField('mensaje', v)}
+            required={required.includes('mensaje')}
+          ></FormField>
+          <button type="submit" className="button submit" disabled={!valid || sending}>
+            {sending ? <span>Espere...</span> : <span>Enviar</span>}
           </button>
         </div>
       </form>

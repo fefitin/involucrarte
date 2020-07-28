@@ -1,6 +1,6 @@
 const nodemailer = require('nodemailer');
 
-export default async (fields, mandatory, from, to, subject, data) => {
+export default async (fields, mandatory, from, to, subject, data, files = []) => {
   //Validate fields
   const errors = mandatory.filter(field => !data[field] || !data[field].trim().length);
 
@@ -27,12 +27,19 @@ export default async (fields, mandatory, from, to, subject, data) => {
       },
     });
 
+    //Build files
+    files = files.map(file => ({
+      filename: file.name,
+      content: file,
+    }));
+
     //Send mail with defined transport object
     const info = await transporter.sendMail({
       from,
       to,
       subject,
       text: message.trim(),
+      attachments: files,
     });
 
     return info;

@@ -4,10 +4,11 @@ import Head from 'next/head';
 import FundacionSi from './../../components/FundacionSi';
 import FormField from '../../components/FormField';
 import API from '../../services/API';
+import { createRefs, updateValid, triggerValidations } from './../../libs/forms';
 
-export default function Home() {
+export default function Contacto() {
   const required = ['nombre', 'email'];
-  const refs = { nombre: useRef(), email: useRef() };
+  const refs = createRefs(required);
 
   const [fields, setFields] = useState({ nombre: '', email: '', mensaje: '' });
   const [valid, setValid] = useState(true);
@@ -17,31 +18,16 @@ export default function Home() {
   const setField = (field, value) => {
     setFields(fields => {
       fields[field] = value;
-      updateValid();
+      updateValid(fields, required, setValid);
       return fields;
-    });
-  };
-
-  const updateValid = () => {
-    //Check if all required fields are ok
-    const errors = required.filter(field => !fields[field] || !fields[field].length);
-    const valid = errors.length === 0;
-    setValid(valid);
-    return valid;
-  };
-
-  const triggerValidations = () => {
-    //Fire validations inside FormField
-    Object.values(refs).forEach(ref => {
-      ref.current.dispatchEvent(new Event('blur'));
     });
   };
 
   const onSubmit = e => {
     e.preventDefault();
-    triggerValidations();
+    triggerValidations(refs);
 
-    if (updateValid()) {
+    if (updateValid(fields, required, setValid)) {
       setSending(true);
 
       API.post('/contacto', fields)
