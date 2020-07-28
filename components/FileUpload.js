@@ -1,16 +1,24 @@
 import { useState } from 'react';
+import resizeImage from './../libs/resizeImage';
 
 const FileUpload = ({ placeholder, onChange }) => {
   const [image, setImage] = useState(null);
 
   const loadImage = e => {
     if (e.target.files && e.target.files.length) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        setImage(reader.result);
-      };
-      reader.readAsDataURL(e.target.files[0]);
-      onChange(e.target.files[0]);
+      const fileName = e.target.files[0].name;
+
+      resizeImage(e.target.files[0], 1500, 1500).then(blob => {
+        //Show image
+        const reader = new FileReader();
+        reader.onload = () => {
+          setImage(reader.result);
+        };
+        reader.readAsDataURL(blob);
+
+        //Send resized file to parent
+        onChange(new File([blob], fileName));
+      });
     }
   };
 
