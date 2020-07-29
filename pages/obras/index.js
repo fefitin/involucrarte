@@ -1,6 +1,6 @@
-import obras from './../../data/obras.json';
 import Head from 'next/head';
 import Obra from './../../components/Obra';
+import API from '../../services/API';
 
 export default function Home({ obras }) {
   return (
@@ -12,7 +12,7 @@ export default function Home({ obras }) {
       <div className="container">
         <ul className="listing">
           {obras.map(obra => (
-            <Obra key={obra.id} obra={obra}></Obra>
+            <Obra key={obra._id} obra={obra}></Obra>
           ))}
         </ul>
       </div>
@@ -20,14 +20,12 @@ export default function Home({ obras }) {
   );
 }
 
-export async function getStaticProps({ params }) {
-  const sorted = obras.sort((obra1, obra2) =>
-    obra1.autor.apellido < obra2.autor.apellido ? -1 : 1
-  );
+export async function getStaticProps() {
+  const obras = await API.get('/obras');
 
   return {
     props: {
-      obras: sorted,
+      obras: obras,
     },
   };
 }

@@ -1,8 +1,8 @@
 import { useRef, useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import API from '../../services/API';
 import Button from './../../components/Button';
-import obras from './../../data/obras.json';
 import YouTubeVideo from '../../components/YouTubeVideo';
 import precio from './../../libs/precio';
 
@@ -148,6 +148,7 @@ export default function Obra({ obra, siguiente, anterior }) {
 }
 
 export async function getStaticPaths() {
+  const obras = await API.get('/obras');
   const paths = obras.map(obra => {
     return {
       params: {
@@ -163,8 +164,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const i = obras.findIndex(o => o.slug === params.id);
-  const obra = obras[i];
+  const { obra, siguiente, anterior } = await API.get(`/obras/${params.id}`);
+
   if (obra.precio) {
     obra.precio2 = obra.precio * 1.1;
     obra.precio3 = obra.precio * 1.2;
@@ -173,8 +174,8 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       obra,
-      siguiente: i <= obras.length - 2 ? obras[i + 1] : null,
-      anterior: i > 0 ? obras[i - 1] : null,
+      siguiente,
+      anterior,
     },
   };
 }

@@ -1,5 +1,5 @@
 import axios from 'axios';
-const base = '/api';
+const base = process.env.API_HOST;
 
 const API = {
   post: (endpoint, data, options = {}) => {
@@ -14,6 +14,9 @@ const API = {
     }
 
     return axios.post(`${base}${endpoint}`, formData, options).then(response => response.data);
+  },
+  get: (endpoint, options = {}) => {
+    return axios.get(`${base}${endpoint}`, options).then(response => response.data);
   },
 };
 
