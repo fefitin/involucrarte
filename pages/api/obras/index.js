@@ -1,11 +1,14 @@
 import connect from './../../../libs/connect';
 import Obra from './../../../models/Obra';
 
-export default async (req, res) => {
+export async function getObras() {
   await connect();
+  return Obra.find().sort({ 'autor.apellido': 1, titulo: 1 });
+}
 
+export default async (req, res) => {
   try {
-    const obras = await Obra.find().sort({ 'autor.apellido': 1, titulo: 1 });
+    const obras = await getObras();
     res.json(obras);
   } catch (e) {
     res.statusCode = 400;

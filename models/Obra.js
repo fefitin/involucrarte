@@ -9,6 +9,7 @@ const ObraSchema = new Schema({
     apellido: String,
     foto: String,
     video: String,
+    vartical: Boolean,
     facebook: String,
     instagram: String,
   },

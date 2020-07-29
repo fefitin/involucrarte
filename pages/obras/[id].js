@@ -1,10 +1,11 @@
 import { useRef, useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import API from '../../services/API';
 import Button from './../../components/Button';
 import YouTubeVideo from '../../components/YouTubeVideo';
 import precio from './../../libs/precio';
+import { getObras } from '../api/obras/index';
+import { getObra } from '../api/obras/[id]';
 
 export default function Obra({ obra, siguiente, anterior }) {
   const container = useRef();
@@ -148,7 +149,7 @@ export default function Obra({ obra, siguiente, anterior }) {
 }
 
 export async function getStaticPaths() {
-  const obras = await API.get('/obras');
+  const obras = await getObras('/obras');
   const paths = obras.map(obra => {
     return {
       params: {
@@ -164,7 +165,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const { obra, siguiente, anterior } = await API.get(`/obras/${params.id}`);
+  const { obra, siguiente, anterior } = await getObra(params.id);
 
   if (obra.precio) {
     obra.precio2 = obra.precio * 1.1;
@@ -173,9 +174,9 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      obra,
-      siguiente,
-      anterior,
+      obra: JSON.parse(JSON.stringify(obra)),
+      siguiente: JSON.parse(JSON.stringify(siguiente)),
+      anterior: JSON.parse(JSON.stringify(anterior)),
     },
   };
 }

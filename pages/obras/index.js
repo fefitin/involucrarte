@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Obra from './../../components/Obra';
-import API from '../../services/API';
+import { getObras } from '../api/obras/index';
 
 export default function Home({ obras }) {
   return (
@@ -21,11 +21,11 @@ export default function Home({ obras }) {
 }
 
 export async function getStaticProps() {
-  const obras = await API.get('/obras');
-
+  const obras = await getObras();
   return {
     props: {
-      obras: obras,
+      //Returned props must be serializable
+      obras: JSON.parse(JSON.stringify(obras)),
     },
   };
 }
