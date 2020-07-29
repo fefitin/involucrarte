@@ -167,11 +167,6 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const { obra, siguiente, anterior } = await getObra(params.id);
 
-  if (obra.precio) {
-    obra.precio2 = obra.precio * 1.1;
-    obra.precio3 = obra.precio * 1.2;
-  }
-
   return {
     props: {
       obra: JSON.parse(JSON.stringify(obra)),

@@ -36,7 +36,7 @@ export async function getObra(id) {
 
 export default async (req, res) => {
   try {
-    const { obra, anterior, siguiente } = getObra(req.query.id);
+    const { obra, anterior, siguiente } = await getObra(req.query.id);
     res.json({ obra, anterior, siguiente });
   } catch (e) {
     console.log(e);
