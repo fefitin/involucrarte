@@ -6,12 +6,25 @@ export function Blocks({ children }) {
 
   if (process.browser) {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [windowLoaded, setWindowLoaded] = useState(false);
 
     //Update state on resize
     useEffect(() => {
-      window.addEventListener('resize', () => {
+      const listenerWidth = () => {
         setWindowWidth(window.innerWidth);
-      });
+      };
+
+      const listenerLoad = () => {
+        setWindowLoaded(true);
+      };
+
+      window.addEventListener('resize', listenerWidth);
+      window.addEventListener('load', listenerLoad);
+
+      return () => {
+        window.removeEventListener('resize', listenerWidth);
+        window.removeEventListener('load', listenerLoad);
+      };
     }, []);
 
     //Update overflowing background
@@ -21,13 +34,19 @@ export function Blocks({ children }) {
 
       container.current.style.setProperty('--firstX', `${first.offsetLeft}px`);
       container.current.style.setProperty('--firstHeight', `${first.offsetHeight}px`);
-      container.current.style.setProperty('--secondX', `${second.offsetLeft + second.offsetWidth}px`);
+      container.current.style.setProperty(
+        '--secondX',
+        `${second.offsetLeft + second.offsetWidth}px`
+      );
       container.current.style.setProperty('--secondHeight', `${second.offsetHeight}px`);
-    }, [windowWidth]);
+    }, [windowWidth, windowLoaded]);
   }
 
   return (
-    <div ref={container} className={`blocks ${React.Children.count(children) === 1 ? 'single' : ''}`}>
+    <div
+      ref={container}
+      className={`blocks ${React.Children.count(children) === 1 ? 'single' : ''}`}
+    >
       <div className="blocks-container">{children}</div>
     </div>
   );
