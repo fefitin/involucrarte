@@ -11,6 +11,7 @@ export default function Obra({ obra }) {
             <p className="author">
               {obra.autor.nombre} {obra.autor.apellido}
             </p>
+            <p className="number">Obra #{obra.id}</p>
           </div>
         </a>
       </Link>

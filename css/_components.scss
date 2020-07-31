@@ -279,6 +279,10 @@
     z-index: 1;
   }
 
+  &.price span {
+    font-family: 'Times New Roman', Times, serif;
+  }
+
   &.gold {
     color: #c1bca7;
     border-color: #c1bca7;
@@ -370,6 +374,11 @@
         display: block;
       }
     }
+  }
+
+  .tos {
+    margin-top: 1em;
+    font-size: 1.6em;
   }
 
   input,

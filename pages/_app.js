@@ -2,6 +2,7 @@
 import './../css/global.scss';
 import Header from './../components/Header';
 import Footer from './../components/Footer';
+import FundacionSi from './../components/FundacionSi';
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -9,6 +10,8 @@ function MyApp({ Component, pageProps }) {
       <Header></Header>
       <main className="main">
         <Component {...pageProps} />
+
+        <FundacionSi></FundacionSi>
       </main>
       <Footer></Footer>
     </div>

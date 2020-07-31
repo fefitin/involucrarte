@@ -41,6 +41,11 @@
     font-style: italic;
   }
 
+  .number {
+    font-size: 1.4em;
+    margin-top: 1em;
+  }
+
   .link {
     margin-top: 2em;
     img {
@@ -200,12 +205,6 @@
       li {
         margin: var(--gutter) 0 0 0;
       }
-
-      .button {
-        span {
-          font-family: 'Times New Roman', Times, serif;
-        }
-      }
     }
   }
 
@@ -347,6 +346,73 @@
           float: right;
         }
       }
+    }
+  }
+}
+
+.comprar {
+  .large-text {
+    text-align: left;
+  }
+
+  .buy {
+    margin-top: var(--gutter);
+  }
+
+  .tos {
+    margin-top: 1em;
+    font-size: 1.6em;
+  }
+
+  .steps {
+    margin: var(--gutter) auto;
+    text-align: left;
+    max-width: 80em;
+    a {
+      color: inherit;
+      text-decoration: underline;
+    }
+
+    li {
+      list-style-type: decimal;
+      font-size: 2em;
+      list-style-position: inside;
+      line-height: 1.4em;
+
+      + li {
+        margin-top: calc(var(--gutter) / 2);
+      }
+    }
+  }
+
+  .transfer {
+    text-align: left;
+    background-color: #fff;
+    border: 1px solid #000;
+    max-width: 45em;
+    margin: var(--gutter) auto;
+    padding: 0.25em 0 0.5em 0;
+
+    li {
+      padding: 0.5em 1em;
+      border-bottom: 1px dotted #eaeaea;
+      line-height: 1.1em;
+      font-size: 2em;
+      list-style-position: inside;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      + li {
+        margin: 0;
+      }
+    }
+
+    strong {
+      display: block;
+      text-transform: uppercase;
+      font-size: 0.75em;
     }
   }
 }

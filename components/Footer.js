@@ -5,6 +5,11 @@ export default function Footer() {
     <footer className="container footer">
       <ul className="links">
         <li>
+          <Link href="/">
+            <a>Inicio</a>
+          </Link>
+        </li>
+        <li>
           <Link href="/quienes-somos">
             <a>Quiénes somos</a>
           </Link>
@@ -53,14 +58,14 @@ export default function Footer() {
         </p>
 
         <div className="logos">
-          <a href="https://divinodi.com" target="_blank" rel="nofollow">
+          <a href="https://divinodi.com" target="_blank" rel="noopener noreferrer">
             <img
               src="/images/logos/divinodisenio-footer.svg"
               alt="Divino Diseño"
               className="divino"
             />
           </a>
-          <a href="https://www.behance.net/vanegarciadg" target="_blank" rel="nofollow">
+          <a href="https://www.behance.net/vanegarciadg" target="_blank" rel="noopener noreferrer">
             <img src="/images/logos/vanegarcia-footer.svg" alt="Vane García" className="vane" />
           </a>
         </div>

@@ -151,9 +151,19 @@ export default function QuieroDonar() {
             {sending ? <span>Espere...</span> : <span>Enviar</span>}
           </button>
         </div>
+        <p className="tos">
+          Con el envío de este formulario declaro que la foto del arte de referencia es de mi
+          propiedad formal e intelectual el que DONO a FundacionSI. A través del presente AUTORIZO
+          expresamente al sitio INVOLUCRARTE.COM.AR a publicarla con el objeto de realizar la
+          gestión de venta al precio de referencia o mayor. AUTORIZO expresamente a FundacionSI a
+          disponer del dinero recibido conforme sus criterio respecto de su objeto caritativo. Una
+          vez que me notifiquen al mail de referencia la concreción de la venta me comprometo a
+          entregar la obra referida al comprador en mi domicilio conforme sus indicaciones y
+          deslindo de todo tipo de responsabilidad a INVOLUCRARTE.COM.AR. Declaro que los datos
+          consignados más arriba son de mi propiedad. La presente notificación tiene plena VALIDEZ
+          LEGAL a todos sus efectos.
+        </p>
       </form>
-
-      <FundacionSi></FundacionSi>
     </div>
   );
 }

@@ -16,6 +16,16 @@
     }
   },
   {
+    "logo": "/images/logos/msp-abogados.svg",
+    "nombre": "MSP Abogados",
+    "descripcion": "Abogados y asesoramiento legal",
+    "link": {
+      "url": "https://mspabogados.org",
+      "icono": "/images/web.svg",
+      "nombre": "mspabogados.org"
+    }
+  },
+  {
     "logo": "/images/logos/fundacionsi.png",
     "nombre": "FundaciónSí",
     "descripcion": "ONG",

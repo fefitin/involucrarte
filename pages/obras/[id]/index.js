@@ -1,11 +1,11 @@
 import { useRef, useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import Button from './../../components/Button';
-import YouTubeVideo from '../../components/YouTubeVideo';
-import precio from './../../libs/precio';
-import { getObras } from '../api/obras/index';
-import { getObra } from '../api/obras/[id]';
+import Button from '../../../components/Button';
+import YouTubeVideo from '../../../components/YouTubeVideo';
+import precio from '../../../libs/precio';
+import { getObras } from '../../api/obras/index';
+import { getObra } from '../../api/obras/[id]';
 
 export default function Obra({ obra, siguiente, anterior }) {
   const container = useRef();
@@ -65,6 +65,7 @@ export default function Obra({ obra, siguiente, anterior }) {
               {obra.tecnica && <p>{obra.tecnica}</p>}
               {obra.tamano && <p>{obra.tamano}</p>}
               {obra.ano && <p>{obra.ano}</p>}
+              <p>Obra #{obra.id}</p>
             </div>
           </div>
 
@@ -118,20 +119,27 @@ export default function Obra({ obra, siguiente, anterior }) {
 
             <ul className="buttons">
               <li>
-                <Button href="/obras/gracias" label={precio(obra.precio)} className="gold"></Button>
-              </li>
-              <li>
                 <Button
-                  href="/obras/gracias"
-                  label={precio(obra.precio2)}
-                  className="silver"
+                  href={{ pathname: `/obras/[id]/comprar`, query: { precio: obra.precio } }}
+                  as={{ pathname: `/obras/${obra.slug}/comprar`, query: { precio: obra.precio } }}
+                  label={precio(obra.precio)}
+                  className="price gold"
                 ></Button>
               </li>
               <li>
                 <Button
-                  href="/obras/gracias"
+                  href={{ pathname: `/obras/[id]/comprar`, query: { precio: obra.precio2 } }}
+                  as={{ pathname: `/obras/${obra.slug}/comprar`, query: { precio: obra.precio2 } }}
+                  label={precio(obra.precio2)}
+                  className="price silver"
+                ></Button>
+              </li>
+              <li>
+                <Button
+                  href={{ pathname: `/obras/[id]/comprar`, query: { precio: obra.precio3 } }}
+                  as={{ pathname: `/obras/${obra.slug}/comprar`, query: { precio: obra.precio3 } }}
                   label={precio(obra.precio3)}
-                  className="black"
+                  className="price black"
                 ></Button>
               </li>
             </ul>

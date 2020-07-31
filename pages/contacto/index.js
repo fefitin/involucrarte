@@ -90,8 +90,6 @@ export default function Contacto() {
           </button>
         </div>
       </form>
-
-      <FundacionSi></FundacionSi>
     </div>
   );
 }

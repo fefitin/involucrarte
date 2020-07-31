@@ -15,7 +15,7 @@ export default function Home() {
         <LargeText>
           <mark>Una forma de ayudar</mark>
           <br />
-          <strong>a los más necesitados.</strong>
+          <strong>a los que más lo necesitan.</strong>
         </LargeText>
       </div>
 
@@ -23,28 +23,31 @@ export default function Home() {
 
       <div className="video-caption">
         <p>
-          Hoy podemos llevar adelante esta original acción gracias a la compasión y generosidad de
-          este grupo de artistas, bajo el lema de
+          Llevamos adelante esta acción gracias a la colaboración de este grupo de artistas, bajo el
+          lema de
         </p>
         <img src="/images/involucrarte.svg" alt="Involucrarte." />
       </div>
 
       <div className="small-container">
         <p>
-          Un grupo de artistas dona su arte para la venta. En esta página publicamos las obras y
-          gestionamos la venta. Los compradores depositan el dinero directamente en una cuenta de la{' '}
-          <strong>FundacionSí</strong>.
+          ¿De que sé trata involucr<strong>arte</strong>? Un grupo de artistas dona sus creaciones.
+          <br />
+          Desde involucr<strong>arte</strong>, publicamos las obras y gestionamos la venta.
         </p>
 
         <LargeText>
-          Cuántas más obras se venden, más dinero disponible para cooperar.
+          Cuántas más obras se venden, más podemos ayudar.
           <br />
           <mark>
             <strong>¿Querés</strong> involucr<strong>arte?</strong>
           </mark>
         </LargeText>
 
-        <p>Te invito a ver las obras... ¡¡¡Tal vez nos puedas acompañar!!!</p>
+        <p>
+          Te invitamos a que veas las obras, a que compartas el sitio y te sientas protagonista de
+          esta acción. ¿Nos acompañás?
+        </p>
       </div>
 
       <div className="small-container">
@@ -65,8 +68,8 @@ export default function Home() {
             ¿Sos <strong>artista?</strong>
           </h2>
           <p>
-            Unite a nuestro grupo de artistas y donanos tu obra para formar parte de este generoso
-            proyecto.
+            Unite a nuestro grupo de artistas, donanos tu obra para formar parte de este proyecto de
+            ayuda.
           </p>
         </Block>
         <Block button="Comprar" link="/obras">
@@ -74,13 +77,11 @@ export default function Home() {
             ¿Querés <strong>una obra?</strong>
           </h2>
           <p>
-            El total del dinero de tu comprá será donado a la <strong>FundaciónSi</strong> para los
-            que más lo necesitan.
+            El dinero de tu comprá se acredita directamente en una cuenta de
+            <strong> FundaciónSí</strong>.
           </p>
         </Block>
       </Blocks>
-
-      <FundacionSi></FundacionSi>
     </div>
   );
 }

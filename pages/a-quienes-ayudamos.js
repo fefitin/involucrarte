@@ -57,8 +57,6 @@ export default function Home() {
           </p>
         </Block>
       </Blocks>
-
-      <FundacionSi></FundacionSi>
     </div>
   );
 }

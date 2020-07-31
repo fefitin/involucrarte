@@ -19,7 +19,7 @@ export default function Home() {
           ante las evidentes
           <br />
           <strong>diferencias sociales,</strong>
-          <mark>tratamos de ayudar</mark>
+          <mark>queremos ayudar</mark>
         </LargeText>
 
         <p>
@@ -31,12 +31,12 @@ export default function Home() {
         <LargeText>
           <mark>Involucrate, cooperá y</mark>
           <br />
-          <strong>sentite orgulloso de vos!</strong>
+          <strong>sentite protagonista!</strong>
         </LargeText>
 
         <p>
-          Pretendemos no ser impasibles a <strong>las diferencias sociales</strong> de nuestro país
-          y en el mundo.
+          Pretendemos no ser impasibles y tenemos en cuenta
+          <strong> las diferencias sociales</strong> de nuestro país.
         </p>
       </div>
 
@@ -46,8 +46,8 @@ export default function Home() {
             ¿Sos <strong>artista?</strong>
           </h2>
           <p>
-            Unite a nuestro grupo de artistas y donanos tu obra para formar parte de este generoso
-            proyecto.
+            Unite a nuestro grupo de artistas, donanos tu obra para formar parte de este proyecto de
+            ayuda.
           </p>
         </Block>
         <Block button="Comprar" link="/obras">
@@ -55,13 +55,11 @@ export default function Home() {
             ¿Querés <strong>una obra?</strong>
           </h2>
           <p>
-            El total del dinero de tu comprá será donado a la <strong>FundaciónSi</strong> para los
-            que más lo necesitan.
+            El dinero de tu comprá se acredita directamente en una cuenta de
+            <strong> FundaciónSí</strong>.
           </p>
         </Block>
       </Blocks>
-
-      <FundacionSi></FundacionSi>
     </div>
   );
 }
