@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import Head from 'next/head';
-import LargeText from '../../../components/LargeText';
 import precio from '../../../libs/precio';
 import { getObras } from '../../api/obras/index';
 import { getObra } from '../../api/obras/[id]';
@@ -27,16 +26,13 @@ export default function ObraComprar({ obra }) {
       </Head>
 
       <div className="container">
-        <LargeText>
-          <mark>¡Te involucraste!</mark>
-          <br />
-          <strong>Gracias por tu ayuda</strong>
-        </LargeText>
-
-        <p>
-          Estás comprando la obra <strong>{obra.titulo}</strong> de {obra.autor.nombre}{' '}
-          {obra.autor.apellido} por un valor de <strong>{precio(ofertado)}</strong>.
+        <p>Estás comprando la obra</p>
+        <h1>{obra.titulo}</h1>
+        <p className="author-name">
+          de {obra.autor.nombre} {obra.autor.apellido}
         </p>
+        <p>por un valor de</p>
+        <p className="price">{precio(ofertado)}</p>
 
         <ol className="steps">
           <li>
@@ -54,53 +50,55 @@ export default function ObraComprar({ obra }) {
           <li>Te ponemos en contacto con el artista para recibir la obra.</li>
         </ol>
 
-        {!viewTransfer ? (
-          <div className="buy">
-            <h2>
-              <span>Forma de pago</span>
-            </h2>
+        <div className="prices">
+          {!viewTransfer ? (
+            <div className="buy">
+              <h2>
+                <span>Forma de pago</span>
+              </h2>
 
-            <ul className="buttons">
+              <ul className="buttons">
+                <li>
+                  <a
+                    href="https://donaronline.org/fundacion-si/hace-posible-los-proyectos-de-fundacion-si"
+                    className="button"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => buy(obra.id, 'card')}
+                  >
+                    <span>Tarjeta de crédito</span>
+                  </a>
+                </li>
+                <li>
+                  <button className="button" onClick={() => buy(obra.id, 'transfer')}>
+                    <span>Transferencia o depósito</span>
+                  </button>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <ul className="transfer">
               <li>
-                <a
-                  href="https://donaronline.org/fundacion-si/hace-posible-los-proyectos-de-fundacion-si"
-                  className="button"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => buy(obra.id, 'card')}
-                >
-                  <span>Tarjeta de crédito</span>
-                </a>
+                <strong>Nombre de la cuenta:</strong> Fundación Sí Argentina
               </li>
               <li>
-                <button className="button" onClick={() => buy(obra.id, 'transfer')}>
-                  <span>Transferencia o depósito</span>
-                </button>
+                <strong>Banco:</strong> Banco Hipotecario
+              </li>
+              <li>
+                <strong>Alias:</strong> FUNDACION.SI.ARG
+              </li>
+              <li>
+                <strong>Cuenta Corriente en pesos Nro.:</strong> 3-000-0000039073-6
+              </li>
+              <li>
+                <strong>CBU:</strong> 0440000-43000000390736-1
+              </li>
+              <li>
+                <strong>CUIT:</strong> 30-71250682-9
               </li>
             </ul>
-          </div>
-        ) : (
-          <ul className="transfer">
-            <li>
-              <strong>Nombre de la cuenta:</strong> Fundación Sí Argentina
-            </li>
-            <li>
-              <strong>Banco:</strong> Banco Hipotecario
-            </li>
-            <li>
-              <strong>Alias:</strong> FUNDACION.SI.ARG
-            </li>
-            <li>
-              <strong>Cuenta Corriente en pesos Nro.:</strong> 3-000-0000039073-6
-            </li>
-            <li>
-              <strong>CBU:</strong> 0440000-43000000390736-1
-            </li>
-            <li>
-              <strong>CUIT:</strong> 30-71250682-9
-            </li>
-          </ul>
-        )}
+          )}
+        </div>
 
         <p className="tos">
           La obra será reservada para vos durante 72 horas.
