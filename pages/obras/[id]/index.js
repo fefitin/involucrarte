@@ -5,7 +5,7 @@ import Button from '../../../components/Button';
 import YouTubeVideo from '../../../components/YouTubeVideo';
 import precio from '../../../libs/precio';
 import { getObras } from '../../api/obras/index';
-import { getObra } from '../../api/obras/[id]';
+import { getObra } from '../../api/obras/[id]/index';
 
 export default function Obra({ obra, siguiente, anterior }) {
   const container = useRef();

@@ -1,5 +1,5 @@
-import connect from './../../../libs/connect';
-import Obra from './../../../models/Obra';
+import connect from './../../../../libs/connect';
+import Obra from './../../../../models/Obra';
 
 export async function getObra(id) {
   await connect();

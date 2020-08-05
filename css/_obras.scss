@@ -198,6 +198,10 @@
       }
     }
 
+    p {
+      margin-top: 2em;
+    }
+
     .buttons {
       margin-top: var(--gutter);
       text-align: center;
@@ -205,6 +209,10 @@
       li {
         margin: var(--gutter) 0 0 0;
       }
+    }
+
+    .form {
+      margin-top: 2em;
     }
   }
 
@@ -386,6 +394,18 @@
     }
   }
 
+  a {
+    color: inherit;
+    background-color: #fff;
+    text-decoration: none;
+    padding: 0 0.25em;
+
+    &:hover {
+      background-color: #000;
+      color: #fff;
+    }
+  }
+
   .buy {
     margin: var(--gutter) auto;
   }
@@ -399,18 +419,6 @@
     margin: var(--space) 0;
     text-align: left;
     max-width: 80em;
-
-    a {
-      color: inherit;
-      background-color: #fff;
-      text-decoration: none;
-      padding: 0 0.25em;
-
-      &:hover {
-        background-color: #000;
-        color: #fff;
-      }
-    }
 
     li {
       list-style-type: decimal;
@@ -426,6 +434,11 @@
   .prices {
     text-align: center;
     margin-bottom: var(--space);
+  }
+
+  .buy {
+    max-width: 67em;
+    width: 100%;
   }
 
   .transfer {
@@ -463,6 +476,24 @@
     .author-name,
     .price {
       font-size: 4.6em;
+    }
+  }
+
+  @media (min-width: $tablet) {
+    .buy .buttons {
+      margin-top: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: calc(var(--gutter) / 2);
+
+      li {
+        margin: 0;
+      }
+
+      .button {
+        width: 100%;
+        margin: 0;
+      }
     }
   }
 

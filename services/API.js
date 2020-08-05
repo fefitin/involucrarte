@@ -2,6 +2,9 @@ import axios from 'axios';
 const base = '/api';
 
 const API = {
+  get: endpoint => {
+    return axios.get(`${base}${endpoint}`).then(response => response.data);
+  },
   post: (endpoint, data, options = {}) => {
     let formData;
 

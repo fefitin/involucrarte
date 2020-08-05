@@ -1,21 +1,66 @@
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import precio from '../../../libs/precio';
 import { getObras } from '../../api/obras/index';
 import { getObra } from '../../api/obras/[id]';
+import API from './../../../services/API';
 
 export default function ObraComprar({ obra }) {
   const router = useRouter();
   const ofertado = router.query.precio;
 
-  const [viewTransfer, setViewTransfer] = useState(false);
+  const [error, setError] = useState(false);
+  const [estadoCargado, setEstadoCargado] = useState(false);
+  const [reservada, setReservada] = useState(false);
+  const [reservando, setReservando] = useState(false);
+  const [transferencia, setTransferencia] = useState(false);
 
-  const buy = (id, method) => {
-    if (method === 'transfer') {
-      setViewTransfer(true);
+  useEffect(() => {
+    API.get(`/obras/${obra.slug}/comprar`).then(reservada => {
+      setReservada(reservada._id);
+      setEstadoCargado(true);
+    });
+  }, []);
+
+  const comprar = async (id, nombre, email, metodo) => {
+    setReservando(true);
+
+    try {
+      const data = { nombre, email, metodo };
+      const reserva = await API.post(`/obras/${id}/comprar`, data);
+      if (reserva) {
+        if (metodo === 'transfer') {
+          setTransferencia(true);
+        } else {
+          window.open(
+            'https://donaronline.org/fundacion-si/hace-posible-los-proyectos-de-fundacion-si'
+          );
+          setReservada(true);
+        }
+      } else {
+        setError(true);
+      }
+    } catch (e) {
+      setError(true);
     }
+
+    setReservando(false);
   };
+
+  let controles;
+
+  if (estadoCargado) {
+    if (reservada) {
+      controles = <ObraReservada></ObraReservada>;
+    } else if (error) {
+      controles = <Error></Error>;
+    } else if (transferencia) {
+      controles = <DatosTransferencia></DatosTransferencia>;
+    } else {
+      controles = <Controles obra={obra} comprar={comprar} reservando={reservando}></Controles>;
+    }
+  }
 
   return (
     <div className="obra comprar">
@@ -50,55 +95,7 @@ export default function ObraComprar({ obra }) {
           <li>Te ponemos en contacto con el artista para recibir la obra.</li>
         </ol>
 
-        <div className="prices">
-          {!viewTransfer ? (
-            <div className="buy">
-              <h2>
-                <span>Forma de pago</span>
-              </h2>
-
-              <ul className="buttons">
-                <li>
-                  <a
-                    href="https://donaronline.org/fundacion-si/hace-posible-los-proyectos-de-fundacion-si"
-                    className="button"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => buy(obra.id, 'card')}
-                  >
-                    <span>Tarjeta de crédito</span>
-                  </a>
-                </li>
-                <li>
-                  <button className="button" onClick={() => buy(obra.id, 'transfer')}>
-                    <span>Transferencia o depósito</span>
-                  </button>
-                </li>
-              </ul>
-            </div>
-          ) : (
-            <ul className="transfer">
-              <li>
-                <strong>Nombre de la cuenta:</strong> Fundación Sí Argentina
-              </li>
-              <li>
-                <strong>Banco:</strong> Banco Hipotecario
-              </li>
-              <li>
-                <strong>Alias:</strong> FUNDACION.SI.ARG
-              </li>
-              <li>
-                <strong>Cuenta Corriente en pesos Nro.:</strong> 3-000-0000039073-6
-              </li>
-              <li>
-                <strong>CBU:</strong> 0440000-43000000390736-1
-              </li>
-              <li>
-                <strong>CUIT:</strong> 30-71250682-9
-              </li>
-            </ul>
-          )}
-        </div>
+        <div className="prices">{controles}</div>
 
         <p className="tos">
           La obra será reservada para vos durante 72 horas.
@@ -110,6 +107,126 @@ export default function ObraComprar({ obra }) {
     </div>
   );
 }
+
+const Controles = ({ obra, comprar, reservando }) => {
+  const [nombre, setNombre] = useState('');
+  const [email, setEmail] = useState('');
+
+  const pagos = [
+    { id: 'card', nombre: 'Tarjeta de crédito' },
+    { id: 'transfer', nombre: 'Transferencia o depósito' },
+  ];
+
+  const onSubmit = metodo => {
+    comprar(obra.slug, nombre, email, metodo);
+  };
+
+  return (
+    <div className="buy">
+      <h2>
+        <span>Completá tu reserva</span>
+      </h2>
+
+      <form className="form form-simple" onSubmit={e => e.preventDefault()}>
+        <div className="field">
+          <input
+            type="text"
+            placeholder="Nombre y apellido"
+            value={nombre}
+            onChange={e => setNombre(e.target.value)}
+            required
+          />
+        </div>
+        <div className="field">
+          <input
+            type="email"
+            placeholder="E-mail"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            required
+          />
+        </div>
+
+        <ul className="buttons">
+          {reservando ? (
+            <li>
+              <button type="button" disabled className="button">
+                <span>Espera por favor...</span>
+              </button>
+            </li>
+          ) : (
+            pagos.map(metodo => (
+              <li key={metodo.id}>
+                <button type="button" className="button" onClick={() => onSubmit(metodo.id)}>
+                  <span>{metodo.nombre}</span>
+                </button>
+              </li>
+            ))
+          )}
+        </ul>
+      </form>
+    </div>
+  );
+};
+
+const ObraReservada = () => {
+  return (
+    <div className="buy">
+      <h2>
+        <span>La obra ya está reservada</span>
+      </h2>
+
+      <p>Recordá que las reservas tienen una duración de 72 horas.</p>
+    </div>
+  );
+};
+
+const Error = () => {
+  return (
+    <div className="buy">
+      <h2>
+        <span>Error al reservar tu obra</span>
+      </h2>
+
+      <p>
+        No pudimos concretar tu reserva. Por favor, contactanos a{' '}
+        <a href="mailto:involucrarte.dona@gmail.com">involucrarte.dona@gmail.com</a> para que
+        podamos ayudarte.
+      </p>
+    </div>
+  );
+};
+
+const DatosTransferencia = () => {
+  return (
+    <>
+      <ul className="transfer">
+        <li>
+          <strong>Nombre de la cuenta:</strong> Fundación Sí Argentina
+        </li>
+        <li>
+          <strong>Banco:</strong> Banco Hipotecario
+        </li>
+        <li>
+          <strong>Alias:</strong> FUNDACION.SI.ARG
+        </li>
+        <li>
+          <strong>Cuenta Corriente en pesos Nro.:</strong> 3-000-0000039073-6
+        </li>
+        <li>
+          <strong>CBU:</strong> 0440000-43000000390736-1
+        </li>
+        <li>
+          <strong>CUIT:</strong> 30-71250682-9
+        </li>
+      </ul>
+      <p>
+        Enviá el comprobante de tu transferencia a{' '}
+        <a href="mailto:administracion@fundacionsi.org.ar">administracion@fundacionsi.org.ar</a>.
+      </p>
+    </>
+  );
+};
 
 export async function getStaticPaths() {
   const obras = await getObras('/obras');

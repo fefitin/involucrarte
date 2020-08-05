@@ -499,6 +499,21 @@
   }
 }
 
+.form-simple {
+  padding: 0;
+  background-color: transparent;
+
+  .field {
+    width: 100%;
+    padding: 0;
+    margin: 0 0 calc(var(--gutter) / 2) 0;
+  }
+
+  .button {
+    font-size: 1.6em;
+  }
+}
+
 .youtube-video {
   position: relative;
   padding-bottom: 56.25%;
