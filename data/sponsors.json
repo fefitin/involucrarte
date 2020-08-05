@@ -24,15 +24,5 @@
       "icono": "/images/web.svg",
       "nombre": "mspabogados.org"
     }
-  },
-  {
-    "logo": "/images/logos/fundacionsi.png",
-    "nombre": "FundaciónSí",
-    "descripcion": "ONG",
-    "link": {
-      "url": "https://fundacionsi.org.ar",
-      "icono": "/images/web.svg",
-      "nombre": "fundacionsi.org.ar"
-    }
   }
 ]
