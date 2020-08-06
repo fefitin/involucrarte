@@ -1,11 +1,22 @@
 // import App from 'next/app'
 import './../css/global.scss';
+import { useEffect } from 'react';
 import { DefaultSeo } from 'next-seo';
+import { initGA, logPageView } from './../libs/analytics';
 import Header from './../components/Header';
 import Footer from './../components/Footer';
 import FundacionSi from './../components/FundacionSi';
 
 function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+    if (!window.GA_INITIALIZED) {
+      initGA();
+      window.GA_INITIALIZED = true;
+    }
+
+    logPageView();
+  });
+
   return (
     <div className="app">
       <DefaultSeo
