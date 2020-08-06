@@ -1,13 +1,11 @@
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import Obra from './../../components/Obra';
 import { getObras } from '../api/obras/index';
 
 export default function Home({ obras }) {
   return (
     <div>
-      <Head>
-        <title>obras · involucrarte.</title>
-      </Head>
+      <NextSeo title="obras en venta · involucrarte"></NextSeo>
 
       <div className="container">
         <ul className="listing">

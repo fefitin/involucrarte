@@ -1,7 +1,6 @@
+import { NextSeo } from 'next-seo';
 import { useState } from 'react';
 import Router from 'next/router';
-import Head from 'next/head';
-import FundacionSi from './../../components/FundacionSi';
 import FormField from '../../components/FormField';
 import FileUpload from '../../components/FileUpload';
 import API from '../../services/API';
@@ -63,9 +62,7 @@ export default function QuieroDonar() {
 
   return (
     <div className="form-container">
-      <Head>
-        <title>quiero donar · involucrarte.</title>
-      </Head>
+      <NextSeo title="quiero donar · involucrarte"></NextSeo>
 
       <form className="form" onSubmit={onSubmit} noValidate={true}>
         <h1 className="block-title">

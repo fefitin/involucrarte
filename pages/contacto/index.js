@@ -1,7 +1,6 @@
-import { useState, useRef } from 'react';
+import { NextSeo } from 'next-seo';
+import { useState } from 'react';
 import Router from 'next/router';
-import Head from 'next/head';
-import FundacionSi from './../../components/FundacionSi';
 import FormField from '../../components/FormField';
 import API from '../../services/API';
 import { createRefs, updateValid, triggerValidations } from './../../libs/forms';
@@ -49,9 +48,7 @@ export default function Contacto() {
 
   return (
     <div className="form-container">
-      <Head>
-        <title>contacto · involucrarte.</title>
-      </Head>
+      <NextSeo title="contacto · involucrarte"></NextSeo>
 
       <form className="form" onSubmit={onSubmit} noValidate={true}>
         <h1 className="block-title">

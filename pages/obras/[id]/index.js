@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react';
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import Link from 'next/link';
 import Button from '../../../components/Button';
 import YouTubeVideo from '../../../components/YouTubeVideo';
@@ -36,11 +36,12 @@ export default function Obra({ obra, siguiente, anterior }) {
 
   return (
     <div>
-      <Head>
-        <title>
-          {obra.titulo} de {obra.autor.nombre} {obra.autor.apellido} · involucrarte.
-        </title>
-      </Head>
+      <NextSeo
+        title={`${obra.titulo} de ${obra.autor.nombre} ${obra.autor.apellido} · involucrarte.`}
+        openGraph={{
+          images: [{ url: `https://involucrarte.com.ar/${obra.imagen}` }],
+        }}
+      ></NextSeo>
 
       <div className="obra container" ref={container}>
         <h1>{obra.titulo}</h1>

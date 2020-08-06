@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { useRef, useState, useEffect } from 'react';
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import precio from '../../../libs/precio';
 import { getObras } from '../../api/obras/index';
 import { getObra } from '../../api/obras/[id]';
@@ -64,11 +64,12 @@ export default function ObraComprar({ obra }) {
 
   return (
     <div className="obra comprar">
-      <Head>
-        <title>
-          {obra.titulo} de {obra.autor.nombre} {obra.autor.apellido} · involucrarte.
-        </title>
-      </Head>
+      <NextSeo
+        title={`${obra.titulo} de ${obra.autor.nombre} ${obra.autor.apellido} · involucrarte.`}
+        openGraph={{
+          images: [{ url: `https://involucrarte.com.ar/${obra.imagen}` }],
+        }}
+      ></NextSeo>
 
       <div className="container">
         <p>Estás comprando la obra</p>

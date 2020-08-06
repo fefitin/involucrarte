@@ -1,4 +1,4 @@
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import LargeText from './../../components/LargeText';
 import Button from './../../components/Button';
 import { Blocks, Block } from './../../components/Blocks';
@@ -7,9 +7,7 @@ import ShareButtons from './../../components/ShareButtons';
 export default function Home() {
   return (
     <div>
-      <Head>
-        <title>contacto · involucrarte.</title>
-      </Head>
+      <NextSeo title="quiero donar · involucrarte"></NextSeo>
 
       <div className="small-container">
         <LargeText>

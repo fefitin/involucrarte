@@ -1,5 +1,6 @@
 // import App from 'next/app'
 import './../css/global.scss';
+import { DefaultSeo } from 'next-seo';
 import Header from './../components/Header';
 import Footer from './../components/Footer';
 import FundacionSi from './../components/FundacionSi';
@@ -7,6 +8,20 @@ import FundacionSi from './../components/FundacionSi';
 function MyApp({ Component, pageProps }) {
   return (
     <div className="app">
+      <DefaultSeo
+        title="involucrarte."
+        description="Una forma de ayudar a los que más lo necesitan."
+        openGraph={{
+          type: 'website',
+          locale: 'es',
+          url: 'https://involucrarte.com.ar/',
+          images: [{ url: 'https://involucrarte.com.ar/images/opengraph.png' }],
+          site_name: 'involucrarte.',
+        }}
+        twitter={{
+          cardType: 'summary',
+        }}
+      />
       <Header></Header>
       <main className="main">
         <Component {...pageProps} />

@@ -1,16 +1,10 @@
-import Head from 'next/head';
 import LargeText from './../components/LargeText';
 import HomeVideo from './../components/HomeVideo';
-import FundacionSi from './../components/FundacionSi';
 import { Blocks, Block } from './../components/Blocks';
 
 export default function Home() {
   return (
     <div className="home">
-      <Head>
-        <title>involucrarte.</title>
-      </Head>
-
       <div className="small-container">
         <LargeText>
           <mark>Una forma de ayudar</mark>

@@ -1,14 +1,11 @@
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import LargeText from './../components/LargeText';
-import FundacionSi from './../components/FundacionSi';
 import { Blocks, Block } from './../components/Blocks';
 
 export default function Home() {
   return (
     <div className="home">
-      <Head>
-        <title>quiénes somos · involucrarte.</title>
-      </Head>
+      <NextSeo title="quiénes somos · involucrarte"></NextSeo>
 
       <div className="small-container">
         <LargeText>

@@ -1,4 +1,4 @@
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 import LargeText from './../components/LargeText';
 import Sponsor from './../components/Sponsor';
 import sponsors from './../data/sponsors.json';
@@ -6,9 +6,7 @@ import sponsors from './../data/sponsors.json';
 export default function Home() {
   return (
     <div>
-      <Head>
-        <title>sponsors · involucrarte.</title>
-      </Head>
+      <NextSeo title="nos ayudan · involucrarte"></NextSeo>
 
       <div className="small-container">
         <LargeText>
