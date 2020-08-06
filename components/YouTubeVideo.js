@@ -8,6 +8,7 @@ export default function YouTubeVideo({ id, vertical }) {
         frameBorder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
+        title="Video de YouTube"
       ></iframe>
     </div>
   );
