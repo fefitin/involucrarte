@@ -72,7 +72,9 @@ export default function Obra({ obra, siguiente, anterior }) {
 
           <div className="author" ref={author}>
             <div className="video">
-              {obra.autor.foto && <img src={obra.autor.foto} alt={obra.titulo} />}
+              {obra.autor.foto && (
+                <img src={obra.autor.foto} alt={`${obra.autor.nombre} ${obra.autor.apellido}`} />
+              )}
               {obra.autor.video && (
                 <YouTubeVideo id={obra.autor.video} vertical={obra.autor.vertical} />
               )}
