@@ -68,9 +68,12 @@
     z-index: -1;
   }
 
-  video {
-    width: 100%;
-    display: block;
+  .container {
+    max-width: 53em;
+  }
+
+  .youtube-video {
+    padding-bottom: 100%;
   }
 }
 

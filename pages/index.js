@@ -13,7 +13,7 @@ export default function Home() {
         </LargeText>
       </div>
 
-      <HomeVideo src="/video.mp4"></HomeVideo>
+      <HomeVideo></HomeVideo>
 
       <div className="video-caption">
         <p>
