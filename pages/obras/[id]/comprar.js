@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import Head from 'next/head';
 import precio from '../../../libs/precio';
 import { getObras } from '../../api/obras/index';
@@ -109,6 +109,7 @@ export default function ObraComprar({ obra }) {
 }
 
 const Controles = ({ obra, comprar, reservando }) => {
+  const form = useRef();
   const [nombre, setNombre] = useState('');
   const [email, setEmail] = useState('');
 
@@ -118,7 +119,9 @@ const Controles = ({ obra, comprar, reservando }) => {
   ];
 
   const onSubmit = metodo => {
-    comprar(obra.slug, nombre, email, metodo);
+    if (form.current.reportValidity()) {
+      comprar(obra.slug, nombre, email, metodo);
+    }
   };
 
   return (
@@ -127,7 +130,7 @@ const Controles = ({ obra, comprar, reservando }) => {
         <span>Completá tu reserva</span>
       </h2>
 
-      <form className="form form-simple" onSubmit={e => e.preventDefault()}>
+      <form ref={form} className="form form-simple" onSubmit={e => e.preventDefault()}>
         <div className="field">
           <input
             type="text"

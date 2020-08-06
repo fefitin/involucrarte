@@ -439,6 +439,18 @@
   .buy {
     max-width: 67em;
     width: 100%;
+    .buttons {
+      margin-top: 0;
+
+      li {
+        margin: calc(var(--gutter) / 2) 0;
+      }
+
+      .button {
+        width: 100%;
+        margin: 0;
+      }
+    }
   }
 
   .transfer {
@@ -481,17 +493,11 @@
 
   @media (min-width: $tablet) {
     .buy .buttons {
-      margin-top: 0;
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-gap: calc(var(--gutter) / 2);
 
       li {
-        margin: 0;
-      }
-
-      .button {
-        width: 100%;
         margin: 0;
       }
     }
