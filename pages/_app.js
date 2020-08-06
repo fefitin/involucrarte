@@ -14,7 +14,6 @@ function MyApp({ Component, pageProps }) {
         openGraph={{
           type: 'website',
           locale: 'es',
-          url: 'https://involucrarte.com.ar/',
           images: [{ url: 'https://involucrarte.com.ar/images/opengraph.png' }],
           site_name: 'involucrarte.',
         }}
