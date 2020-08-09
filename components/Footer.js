@@ -48,6 +48,13 @@ export default function Footer() {
         <a href="https://www.facebook.com/involucrate.dona/" target="_blank" rel="noreferrer">
           <img src="/images/facebook.svg" alt="Facebook" />
         </a>
+        <a
+          href="https://www.youtube.com/channel/UCafMf7ZXmz2MB1kF3dHcWgg"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img src="/images/youtube.svg" alt="YouTube" />
+        </a>
       </div>
 
       <div className="copy">
