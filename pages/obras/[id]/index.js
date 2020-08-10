@@ -66,6 +66,7 @@ export default function Obra({ obra, siguiente, anterior }) {
               {obra.tecnica && <p>{obra.tecnica}</p>}
               {obra.tamano && <p>{obra.tamano}</p>}
               {obra.ano && <p>{obra.ano}</p>}
+              {obra.mensaje && <p>{obra.mensaje}</p>}
               <p>Obra #{obra.id}</p>
             </div>
           </div>

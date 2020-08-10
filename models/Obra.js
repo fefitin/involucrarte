@@ -17,6 +17,7 @@ const ObraSchema = new Schema(
     miniatura: String,
     imagen: String,
     ano: Number,
+    mensaje: String,
     tamano: String,
     slug: String,
     precio: Number,
