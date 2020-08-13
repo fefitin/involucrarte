@@ -9,7 +9,7 @@ const Breadcrumb = () => {
 
   useEffect(() => {
     updateBreadcrumb(router.pathname, router.query, setPages);
-  }, [router.pathname]);
+  }, [router.pathname, router.query]);
 
   return pages.length ? (
     <p className="breadcrumb">.{pages.reduce((prev, curr) => [prev, ' › ', curr])}</p>
