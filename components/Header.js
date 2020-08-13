@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import ActiveLink from './ActiveLink';
+import Breadcrumb from './Breadcrumb';
 
 export default function Header() {
   const [visible, setVisible] = useState(false);
@@ -17,6 +18,7 @@ export default function Header() {
             <img src="/images/involucrarte.svg" alt="involucrarte." />
           </a>
         </Link>
+        <Breadcrumb></Breadcrumb>
         <button className="toggle-menu" onClick={e => setVisible(visible => !visible)}>
           <img src="/images/menu.svg" alt="Menú" />
         </button>

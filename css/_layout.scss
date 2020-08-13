@@ -77,13 +77,25 @@ body {
     }
   }
 
+  .breadcrumb {
+    display: none;
+  }
+
   @media (min-width: $tablet) {
     .top {
-      padding: 0 2em;
+      padding: 0 0 0 2em;
+      align-items: flex-end;
     }
 
     .toggle-menu {
       display: none;
+    }
+
+    .breadcrumb {
+      display: block;
+      font-weight: bold;
+      font-size: 1.2em;
+      line-height: 1.2em;
     }
   }
 }
