@@ -33,9 +33,8 @@ export default function ObraComprar({ obra }) {
         if (metodo === 'transfer') {
           setTransferencia(true);
         } else {
-          window.open(
-            'https://donaronline.org/fundacion-si/hace-posible-los-proyectos-de-fundacion-si'
-          );
+          location.href =
+            'https://donaronline.org/fundacion-si/hace-posible-los-proyectos-de-fundacion-si';
           setReservada(true);
         }
       } else {

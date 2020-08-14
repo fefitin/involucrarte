@@ -1,7 +1,8 @@
 import connect from '../../../../libs/connect';
 import Obra from '../../../../models/Obra';
 import Reserva from '../../../../models/Reserva';
-import sendmail from './../../../../libs/sendmail';
+import sendmail, { mailTransporter } from './../../../../libs/sendmail';
+import email from './email';
 
 export async function comprarObra(id, datos, soloVerificar) {
   await connect();
@@ -20,7 +21,7 @@ export async function comprarObra(id, datos, soloVerificar) {
   }
 
   if (datos.nombre && datos.email) {
-    //Notificar via email
+    //Notificar al administrador
     const enviar = Object.assign({}, datos);
     const fields = ['obra', 'obraId', 'nombre', 'email', 'metodo'];
     const mandatory = ['nombre', 'email'];
@@ -36,6 +37,15 @@ export async function comprarObra(id, datos, soloVerificar) {
       'Formulario de reserva',
       enviar
     );
+
+    //Notificar al comprador
+    const transporter = mailTransporter();
+    await transporter.sendMail({
+      from: process.env.EMAIL_FROM,
+      to: datos.email,
+      subject: 'Gracias por tu reserva',
+      html: email(obra),
+    });
 
     //Crear nueva reserva
     const reserva = new Reserva();
