@@ -33,7 +33,7 @@ const ObraSchema = new Schema(
 );
 
 ObraSchema.virtual('precio2').get(function () {
-  return this.precio ? Math.round(this.precio * 1.1) : null;
+  return this.precio ? Math.round(this.precio * 0.7) : null;
 });
 
 ObraSchema.virtual('precio3').get(function () {
