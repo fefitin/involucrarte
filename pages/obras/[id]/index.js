@@ -124,18 +124,18 @@ export default function Obra({ obra, siguiente, anterior }) {
             <ul className="buttons">
               <li>
                 <Button
-                  href={{ pathname: `/obras/[id]/comprar`, query: { precio: obra.precio2 } }}
-                  as={{ pathname: `/obras/${obra.slug}/comprar`, query: { precio: obra.precio2 } }}
-                  label={precio(obra.precio2)}
+                  href={{ pathname: `/obras/[id]/comprar`, query: { precio: obra.precio } }}
+                  as={{ pathname: `/obras/${obra.slug}/comprar`, query: { precio: obra.precio } }}
+                  label={precio(obra.precio)}
                   className="price silver"
                 ></Button>
                 <p>Involucrate</p>
               </li>
               <li>
                 <Button
-                  href={{ pathname: `/obras/[id]/comprar`, query: { precio: obra.precio } }}
-                  as={{ pathname: `/obras/${obra.slug}/comprar`, query: { precio: obra.precio } }}
-                  label={precio(obra.precio)}
+                  href={{ pathname: `/obras/[id]/comprar`, query: { precio: obra.precio2 } }}
+                  as={{ pathname: `/obras/${obra.slug}/comprar`, query: { precio: obra.precio2 } }}
+                  label={precio(obra.precio2)}
                   className="price gold"
                 ></Button>
                 <p>Precio base</p>

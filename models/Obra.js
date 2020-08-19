@@ -33,11 +33,11 @@ const ObraSchema = new Schema(
 );
 
 ObraSchema.virtual('precio2').get(function () {
-  return this.precio ? Math.round(this.precio * 0.7) : null;
+  return this.precio ? Math.round(this.precio * 1.3) : null;
 });
 
 ObraSchema.virtual('precio3').get(function () {
-  return this.precio ? Math.round(this.precio * 1.2) : null;
+  return this.precio ? Math.round(this.precio * 1.3 * 1.2) : null;
 });
 
 export default mongoose.models['obras'] || mongoose.model('obras', ObraSchema);
