@@ -5,30 +5,14 @@ export async function getObra(id) {
   await connect();
   const obra = await Obra.findOne({ slug: id });
 
-  const anterior = await Obra.findOne()
-    .or([
-      { 'autor.apellido': { $lt: obra.autor.apellido } },
-      {
-        $and: [
-          { 'autor.apellido': { $eq: obra.autor.apellido } },
-          { titulo: { $lt: obra.titulo } },
-        ],
-      },
-    ])
-    .sort({ 'autor.apellido': -1, titulo: -1 })
+  const siguiente = await Obra.findOne()
+    .or([{ id: { $lt: obra.id } }])
+    .sort({ id: -1 })
     .limit(1);
 
-  const siguiente = await Obra.findOne()
-    .or([
-      { 'autor.apellido': { $gt: obra.autor.apellido } },
-      {
-        $and: [
-          { 'autor.apellido': { $eq: obra.autor.apellido } },
-          { titulo: { $gt: obra.titulo } },
-        ],
-      },
-    ])
-    .sort({ 'autor.apellido': 1, titulo: 1 })
+  const anterior = await Obra.findOne()
+    .or([{ id: { $gt: obra.id } }])
+    .sort({ id: 1 })
     .limit(1);
 
   return { obra, anterior, siguiente };

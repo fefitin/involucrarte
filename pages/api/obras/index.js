@@ -3,7 +3,7 @@ import Obra from './../../../models/Obra';
 
 export async function getObras() {
   await connect();
-  return Obra.find().sort({ 'autor.apellido': 1, titulo: 1 });
+  return Obra.find().sort({ id: -1 });
 }
 
 export default async (req, res) => {
