@@ -21,6 +21,7 @@ const ObraSchema = new Schema(
     tamano: String,
     slug: String,
     precio: Number,
+    vendida: Boolean,
   },
   {
     toObject: {

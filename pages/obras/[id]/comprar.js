@@ -233,13 +233,15 @@ const DatosTransferencia = () => {
 
 export async function getStaticPaths() {
   const obras = await getObras('/obras');
-  const paths = obras.map(obra => {
-    return {
-      params: {
-        id: obra.slug,
-      },
-    };
-  });
+  const paths = obras
+    .filter(obra => !obra.vendida)
+    .map(obra => {
+      return {
+        params: {
+          id: obra.slug,
+        },
+      };
+    });
 
   return {
     paths,
@@ -249,6 +251,10 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { obra } = await getObra(params.id);
+  if (obra.vendida) {
+    throw new Error('Obra vendida');
+  }
+
   return {
     props: {
       obra: JSON.parse(JSON.stringify(obra)),

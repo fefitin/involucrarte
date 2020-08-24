@@ -12,6 +12,14 @@ export async function comprarObra(id, datos, soloVerificar) {
     return false;
   }
 
+  if (obra.vendida) {
+    if (soloVerificar) {
+      return false;
+    } else {
+      throw new Error('Obra vendida');
+    }
+  }
+
   const reservada = await Reserva.findOne({ obraId: obra._id });
 
   if (soloVerificar) {

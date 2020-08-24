@@ -61,6 +61,8 @@ export default function Obra({ obra, siguiente, anterior }) {
           </div>
 
           <div className="image">
+            {obra.vendida ? <p className="vendida">Vendida</p> : null}
+
             <img src={obra.imagen} alt={obra.titulo} ref={image} />
             <div className="description">
               {obra.tecnica && <p>{obra.tecnica}</p>}
@@ -115,7 +117,7 @@ export default function Obra({ obra, siguiente, anterior }) {
           </div>
         </div>
 
-        {obra.precio && (
+        {obra.precio && !obra.vendida && (
           <div className="buy">
             <h2>
               <span>Comprar ahora</span>

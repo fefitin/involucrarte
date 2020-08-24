@@ -5,6 +5,7 @@ export default function Obra({ obra }) {
     <li>
       <Link href="/obras/[id]" as={`/obras/${obra.slug}`}>
         <a>
+          {obra.vendida ? <p className="vendida">Vendida</p> : null}
           <img src={obra.miniatura} alt={obra.titulo} />
           <div className="info">
             <p className="title">{obra.titulo}</p>
