@@ -114,6 +114,14 @@ export default function Obra({ obra, siguiente, anterior }) {
                 </a>
               </p>
             )}
+
+            {obra.autor.web && (
+              <p className="social">
+                <a href={obra.autor.web} target="_blank">
+                  <img src="/images/web.svg" alt="Web" /> <span>sitio web</span>
+                </a>
+              </p>
+            )}
           </div>
         </div>
 
